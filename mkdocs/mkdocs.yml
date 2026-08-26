@@ -1,0 +1,49 @@
+site_name: Software Testing Course Notes
+site_description: Narrative course notes supporting the Software Testing course (DV033G) at Mid Sweden University.
+site_author: Sergio Rico
+repo_url: https://github.com/sergiorico/software-testing-course-notes
+repo_name: sergiorico/software-testing-course-notes
+edit_uri: edit/main/
+docs_dir: ".."
+site_dir: "/tmp/coursenotes-site"
+
+nav:
+  - Home: README.md
+  - "M1: Quality Assurance and Fundamentals": M1-Quality-Assurance-Fundamentals.md
+  - "M2: Specification-Based and Unit Testing": M2-Specification-Based-and-Unit-Testing.md
+  - "M3: Structural Testing and Coverage": M3-Structural-Testing-and-Coverage.md
+  - "M4: Test Optimization, Mutation, Regression, CI": M4-Test-Optimization-Mutation-Regression-CI.md
+  - "M5: Research Trends and Testing AI": M5-Research-Trends-and-Testing-AI.md
+  - "M6: Ethical and Societal Aspects": M6-Ethical-and-Societal-Aspects.md
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.top
+    - content.action.edit
+    - toc.integrate
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - tables
+  - fenced_code
+
+exclude_docs: |
+  mkdocs/
+  requirements.txt
+  .gitignore
+  site/
+  .github/
+  .venv/
