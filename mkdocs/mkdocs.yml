@@ -9,6 +9,7 @@ site_dir: "/tmp/coursenotes-site"
 
 nav:
   - Home: README.md
+  - "M0: Introduction and Motivation": M0-Introduction-and-Motivation.md
   - "M1: Quality Assurance and Fundamentals": M1-Quality-Assurance-Fundamentals.md
   - "M2: Specification-Based and Unit Testing": M2-Specification-Based-and-Unit-Testing.md
   - "M3: Structural Testing and Coverage": M3-Structural-Testing-and-Coverage.md

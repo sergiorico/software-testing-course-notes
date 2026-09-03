@@ -42,8 +42,9 @@ status table below, for the current state of each module.
 
 ## Production status
 
-| Module | Topic | Source lectures | Status |
+| Module | Topic | Source material | Status |
 |---|---|---|---|
+| M0 | Introduction and Motivation: Software Engineering in the AI Era | L0 and four core readings | Draft v0.4: focused conceptual chapter with testing capabilities; review due |
 | M1 | Quality Assurance & Fundamentals of Testing | L1, L2 | Draft v0.5: aligned, final copyedit due |
 | M2 | Specification-based & Unit Testing | L3, L4 | Draft v0.2: aligned, final copyedit due |
 | M3 | Structural Testing & Coverage | L5 | Draft v0.2: aligned, final copyedit due |
@@ -53,6 +54,7 @@ status table below, for the current state of each module.
 
 ## Chapter files
 
+- [M0: Introduction and Motivation](M0-Introduction-and-Motivation.md)
 - [M1: Quality Assurance and Fundamentals of Software Testing](M1-Quality-Assurance-Fundamentals.md)
 - [M2: Specification-Based and Unit Testing](M2-Specification-Based-and-Unit-Testing.md)
 - [M3: Structural Testing and Coverage](M3-Structural-Testing-and-Coverage.md)
