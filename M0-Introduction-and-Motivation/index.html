@@ -1,0 +1,1927 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Narrative course notes supporting the Software Testing course (DV033G) at Mid Sweden University.">
+      
+      
+        <meta name="author" content="Sergio Rico">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../M1-Quality-Assurance-Fundamentals/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>M0: Introduction and Motivation - Software Testing Course Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-0-introduction-and-motivation-software-engineering-in-the-ai-era" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Software Testing Course Notes" class="md-header__button md-logo" aria-label="Software Testing Course Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Testing Course Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              M0: Introduction and Motivation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sergiorico/software-testing-course-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sergiorico/software-testing-course-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Software Testing Course Notes" class="md-nav__button md-logo" aria-label="Software Testing Course Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Testing Course Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sergiorico/software-testing-course-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sergiorico/software-testing-course-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M0: Introduction and Motivation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M0: Introduction and Motivation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#icon-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Icon Key
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-read-retrieve-and-predict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Read: Retrieve and Predict
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-two-questions-about-software-engineering-in-the-ai-era" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Two Questions About Software Engineering in the AI Era
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-software-engineering-has-always-evolved-through-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Software Engineering Has Always Evolved Through Automation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Software Engineering Has Always Evolved Through Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-processes-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Processes Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-development-tools-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Development Tools Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-communication-and-collaboration-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Communication and Collaboration Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-levels-of-abstraction-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Levels of Abstraction Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ai-changes-the-development-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. AI Changes the Development Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-generative-ai-creates-opportunities-and-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Generative AI Creates Opportunities and Risks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Generative AI Creates Opportunities and Risks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-opportunities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Opportunities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Risks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ai-productivity-depends-on-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. AI Productivity Depends on Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. AI Productivity Depends on Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-myth-1-developers-spend-most-of-their-time-writing-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Myth 1: Developers Spend Most of Their Time Writing Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-myth-2-writing-code-is-the-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Myth 2: Writing Code Is the Bottleneck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-myth-3-lines-of-ai-generated-code-are-the-best-measure-of-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Myth 3: Lines of AI-Generated Code Are the Best Measure of Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-myth-4-ai-helps-all-tasks-and-engineers-equally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Myth 4: AI Helps All Tasks and Engineers Equally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-myth-5-ai-will-turn-individual-developers-into-10x-developers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Myth 5: AI Will Turn Individual Developers into 10x Developers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-myth-6-it-is-up-to-each-developer-to-make-ai-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Myth 6: It Is Up to Each Developer to Make AI Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-myth-7-high-performing-ai-tools-will-be-adopted-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 Myth 7: High-Performing AI Tools Will Be Adopted Automatically
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-myth-8-with-genai-enterprises-can-innovate-at-startup-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 Myth 8: With GenAI, Enterprises Can Innovate at Startup Speed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#59-what-the-eight-myths-have-in-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.9 What the Eight Myths Have in Common
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-programming-is-becoming-differently-difficult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Programming Is Becoming Differently Difficult
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Programming Is Becoming Differently Difficult">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-what-ai-can-offload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 What AI Can Offload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-what-ai-does-not-remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 What AI Does Not Remove
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-four-shifts-in-programming-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Four Shifts in Programming Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-why-this-strengthens-the-case-for-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Why This Strengthens the Case for Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-four-forces-for-examining-ai-mediated-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Four Forces for Examining AI-Mediated Change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ai-adoption-happens-inside-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. AI Adoption Happens Inside Organizations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. AI Adoption Happens Inside Organizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-top-down-adoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Top-Down Adoption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-bottom-up-adoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Bottom-Up Adoption
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-potential-use-is-different-from-actual-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Potential Use Is Different from Actual Use
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ai-increases-the-value-of-engineering-judgment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. AI Increases the Value of Engineering Judgment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. AI Increases the Value of Engineering Judgment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-what-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 What Matters?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-what-is-credible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 What Is Credible?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-what-could-fail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 What Could Fail?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-responsibility-remains-human" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Responsibility Remains Human
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Responsibility Remains Human">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-what-should-we-accept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 What Should We Accept?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-who-is-affected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Who Is Affected?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-who-is-responsible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Who Is Responsible?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-from-ai-to-software-testing-building-justified-confidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. From AI to Software Testing: Building Justified Confidence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-capabilities-needed-in-software-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Capabilities Needed in Software Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Capabilities Needed in Software Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-frame-and-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 Frame and Explain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-execute-and-interpret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 Execute and Interpret
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134-evaluate-and-communicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 Evaluate and Communicate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-summary-and-self-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Summary and Self-Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M1-Quality-Assurance-Fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M1: Quality Assurance and Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M2-Specification-Based-and-Unit-Testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M2: Specification-Based and Unit Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M3-Structural-Testing-and-Coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M3: Structural Testing and Coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M4-Test-Optimization-Mutation-Regression-CI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M4: Test Optimization, Mutation, Regression, CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M5-Research-Trends-and-Testing-AI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M5: Research Trends and Testing AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M6-Ethical-and-Societal-Aspects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M6: Ethical and Societal Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/sergiorico/software-testing-course-notes/edit/main/M0-Introduction-and-Motivation.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="chapter-0-introduction-and-motivation-software-engineering-in-the-ai-era">Chapter 0: Introduction and Motivation - Software Engineering in the AI Era<a class="headerlink" href="#chapter-0-introduction-and-motivation-software-engineering-in-the-ai-era" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Draft v0.4 (2026-09-03). Standalone introduction synthesizing Abrahão et al. (2025), Butler
+et al. (2026), Rico and Öberg (2025), and Osborn (2026).</p>
+</blockquote>
+<h2 id="icon-key">Icon Key<a class="headerlink" href="#icon-key" title="Permanent link">&para;</a></h2>
+<ul>
+<li>📘 <strong>Concept</strong>: a core idea or term.</li>
+<li>🧭 <strong>Principle</strong>: a rule of thumb that guides engineering decisions.</li>
+<li>🛠️ <strong>Technique</strong>: something engineers actively do.</li>
+<li>🧱 <strong>Artifact</strong>: a document, test, report, or other work product.</li>
+<li>🧪 <strong>Exercise</strong>: something to produce, discuss, or reuse in later course work.</li>
+</ul>
+<h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ol>
+<li>Explain how automation has repeatedly changed software engineering work, tools, abstraction,
+   and collaboration.</li>
+<li>Describe how AI can act as a tool, teammate, user, and component of a software system.</li>
+<li>Explain and challenge all eight myths about AI and software-engineering productivity using
+   context, workflow, quality, adoption, and value.</li>
+<li>Use four practical forces to examine what AI enhances, obsolesces, retrieves, and reverses.</li>
+<li>Explain why AI-assisted programming can become <em>differently difficult</em> as cognitive effort
+   moves from recall and production toward comprehension, validation, and integration.</li>
+<li>Distinguish potential uses of generative AI from current organizational practice and identify
+   the trust challenges that limit adoption.</li>
+<li>Explain why engineering judgment, evidence, and human responsibility remain essential.</li>
+<li>Describe the capabilities software testers need to build and communicate justified
+   confidence.</li>
+</ol>
+<h2 id="before-you-read-retrieve-and-predict">Before You Read: Retrieve and Predict<a class="headerlink" href="#before-you-read-retrieve-and-predict" title="Permanent link">&para;</a></h2>
+<p>Without using an AI tool, write a short response to both opening questions:</p>
+<ol>
+<li>Does it still make sense to study an IT-related discipline?</li>
+<li>What remains the role of a software engineer if AI can generate code, tests, explanations,
+   and designs?</li>
+</ol>
+<p>Keep your answers. Revisit them after Sections 11 and 12, then revise one claim and state what
+evidence changed or strengthened your position.</p>
+<p>What does it mean to study and practise software engineering when generative AI can produce
+code, explanations, tests, designs, and other software artifacts? The answer cannot be based only
+on what a model can generate in a short demonstration. It requires us to consider the complete
+software lifecycle, the organizations in which development happens, and the people affected by
+the resulting systems.</p>
+<p>The central argument is that AI does not remove the need for software engineering. Instead, it changes where engineering effort and responsibility are located. As producing plausible software artifacts becomes easier, judgment, evidence, verification, and responsibility become increasingly important.</p>
+<p>📘 <strong>Core idea: Plausibility is not evidence.</strong> AI can make an artifact look complete and
+convincing before anyone has established that it satisfies the right requirement, behaves safely,
+or deserves trust. Software engineering supplies the practices for turning plausible output into
+justified decisions.</p>
+<h2 id="1-two-questions-about-software-engineering-in-the-ai-era">1. Two Questions About Software Engineering in the AI Era<a class="headerlink" href="#1-two-questions-about-software-engineering-in-the-ai-era" title="Permanent link">&para;</a></h2>
+<p>We begin with two questions:</p>
+<blockquote>
+<p>Does it still make sense to study an IT-related discipline?</p>
+<p>What is our role if AI can do "everything"?</p>
+</blockquote>
+<p>These questions reflect a genuine uncertainty created by recent developments in generative AI. Systems can generate code, explain unfamiliar APIs, propose designs, produce tests, summarize documentation, and perform increasingly complex development tasks.</p>
+<p>It is therefore reasonable to ask what remains for software engineers to do.</p>
+<p>However, answering this question requires looking beyond the current generation of AI tools. Software engineering has repeatedly changed as new technologies automated activities that previously required substantial human effort.</p>
+<p>The important question is therefore not simply whether AI can perform particular tasks. We need to understand how automation changes software engineering work, which capabilities become less important, which become more important, and where responsibility ultimately resides.</p>
+<p>🧭 <strong>Principle: Ask where the work moves.</strong> When a tool accelerates one activity, examine which
+review, coordination, testing, integration, maintenance, or risk-management activities grow around
+it.</p>
+<h2 id="2-software-engineering-has-always-evolved-through-automation">2. Software Engineering Has Always Evolved Through Automation<a class="headerlink" href="#2-software-engineering-has-always-evolved-through-automation" title="Permanent link">&para;</a></h2>
+<p>Automation is not new to software engineering.</p>
+<p>The history of the discipline can be understood partly as a sequence of changes in the tools,
+processes, abstractions, and communication mechanisms used to build software. Abrahão et al.'s
+historical timeline shows automation spreading across the complete lifecycle rather than
+remaining confined to code authoring [R1].</p>
+<p><img alt="Historical timeline of tools supporting activities across the software-engineering lifecycle" src="../assets/chapter0/abraham-fig3-se-lifecycle.jpg" /></p>
+<p><em>Figure 0.1. Historical evolution of tools supporting the software-engineering lifecycle.
+Reproduced from Abrahão et al. (2025), Figure 3, under CC BY 4.0 [R1].</em></p>
+<h3 id="21-processes-change">2.1 Processes Change<a class="headerlink" href="#21-processes-change" title="Permanent link">&para;</a></h3>
+<p>Software development processes have changed substantially over time.</p>
+<p>Approaches such as the Rational Unified Process represented attempts to structure software development through explicit phases, roles, activities, and artifacts. Agile approaches subsequently changed many of these assumptions by emphasizing shorter feedback cycles, incremental delivery, and closer interaction among participants.</p>
+<p>AI may produce another transformation. We do not yet know exactly what the resulting development processes will look like.</p>
+<p>The important historical observation is that new technologies rarely eliminate software engineering work entirely. Instead, they redistribute it. Some activities become cheaper or easier, while new problems of integration, coordination, verification, and control emerge.</p>
+<h3 id="22-development-tools-change">2.2 Development Tools Change<a class="headerlink" href="#22-development-tools-change" title="Permanent link">&para;</a></h3>
+<p>The same pattern appears in development tools.</p>
+<p>Version control, for example, evolved from earlier centralized systems such as Subversion toward distributed version control systems such as Git. Git emerged from the needs of Linux kernel development and later became the technical foundation for platforms such as GitHub.</p>
+<p>These tools did more than automate file management. They changed how developers collaborate, review changes, integrate contributions, and organize software projects.</p>
+<p>The relevant lesson for AI is that tools can eventually reshape the practices around them.</p>
+<h3 id="23-communication-and-collaboration-change">2.3 Communication and Collaboration Change<a class="headerlink" href="#23-communication-and-collaboration-change" title="Permanent link">&para;</a></h3>
+<p>Software engineering is also a collaborative activity.</p>
+<p>The paper's collaboration timeline connects changes in hardware, development tools,
+communication media, and AI. The point is not the sequence of individual products but the way
+each layer changes who can participate, how quickly feedback travels, and how work is coordinated
+[R1].</p>
+<p><img alt="Timeline of hardware, development tools, communication media, and AI used in software development" src="../assets/chapter0/abraham-fig4-collaboration.jpg" /></p>
+<p><em>Figure 0.2. Changes in hardware, development tools, communication media, and AI. Reproduced
+from Abrahão et al. (2025), Figure 4, under CC BY 4.0 [R1].</em></p>
+<p>Communication technologies have progressively made geographically distributed software development easier. Teams no longer need to occupy the same physical location to collaborate closely on the same software system.</p>
+<p>Development environments, source code platforms, issue trackers, messaging systems, video conferencing, and other collaborative technologies have changed both the speed and the structure of software development.</p>
+<p>Automation therefore changes not only <em>what</em> individuals can do, but also <em>how people work together</em>.</p>
+<h3 id="24-levels-of-abstraction-change">2.4 Levels of Abstraction Change<a class="headerlink" href="#24-levels-of-abstraction-change" title="Permanent link">&para;</a></h3>
+<p>Computing has also repeatedly moved toward higher levels of abstraction.</p>
+<p>Programming once involved much closer interaction with physical hardware and machine-level
+representations. Higher-level programming languages, frameworks, libraries, APIs, integrated
+development environments, and other abstractions progressively allowed developers to express
+increasingly complex behaviour without controlling every underlying detail.</p>
+<p>A developer using Java, for example, works at a substantially different level of abstraction from someone programming a machine through much lower level mechanisms.</p>
+<p>Generative AI may represent another change in abstraction. Developers can increasingly describe intentions, constraints, examples, or desired behaviour and ask an AI system to produce an implementation.</p>
+<p>What this future level of abstraction will eventually look like remains uncertain.</p>
+<h2 id="3-ai-changes-the-development-context">3. AI Changes the Development Context<a class="headerlink" href="#3-ai-changes-the-development-context" title="Permanent link">&para;</a></h2>
+<p>AI potentially changes more than the tools available to an individual programmer.</p>
+<p>Abrahão et al. describe an evolving development context that includes human and AI users,
+developers, agents, and tools [R1].</p>
+<p><img alt="Evolution from human users and developers toward ecosystems containing human and AI users, developers, agents, and tools" src="../assets/chapter0/abraham-fig5-development-context.jpg" /></p>
+<p><em>Figure 0.3. Evolution of the software-development context. The post-2030 panel represents a
+research horizon rather than a prediction. Reproduced from Abrahão et al. (2025), Figure 5, under
+CC BY 4.0 [R1].</em></p>
+<p>The traditional distinction between user, developer, tool, and software system is becoming less clear.</p>
+<p>AI can appear in several roles:</p>
+<ul>
+<li>as a tool used by a developer,</li>
+<li>as an active participant or agent performing development tasks,</li>
+<li>as part of the software system being engineered, and</li>
+<li>potentially as a user or consumer of other software systems.</li>
+</ul>
+<p>At the same time, generative AI can lower some barriers to software creation.</p>
+<p>People without conventional software development backgrounds can increasingly create prototypes and small applications. This is particularly interesting in contexts such as civic technology, where people may use software to address problems in their communities without necessarily identifying themselves as professional software developers.</p>
+<p>The boundary of who can participate in software development is therefore shifting.</p>
+<p>This does not necessarily imply that professional software developers disappear. Their work may instead increasingly involve integrating contributions, coordinating systems and agents, understanding requirements, evaluating generated artifacts, and deciding whether software is suitable for its intended purpose.</p>
+<h2 id="4-generative-ai-creates-opportunities-and-risks">4. Generative AI Creates Opportunities and Risks<a class="headerlink" href="#4-generative-ai-creates-opportunities-and-risks" title="Permanent link">&para;</a></h2>
+<p>Generative AI should not be understood simply as either beneficial or harmful to software engineering.</p>
+<p>The same capabilities that create opportunities can also create new risks.</p>
+<h3 id="41-opportunities">4.1 Opportunities<a class="headerlink" href="#41-opportunities" title="Permanent link">&para;</a></h3>
+<p>Generative AI can make software development more accessible.</p>
+<p>People can turn ideas into prototypes without first mastering every implementation detail. Developers can explore unfamiliar APIs, languages, frameworks, and concepts with interactive assistance.</p>
+<p>Repetitive activities can increasingly be delegated or partially automated.</p>
+<p>AI can also shorten feedback cycles. Instead of waiting to obtain information or manually producing an initial solution, developers can quickly generate something that can be inspected, executed, challenged, and refined.</p>
+<p>These capabilities can expand what individuals and teams are able to attempt.</p>
+<h3 id="42-risks">4.2 Risks<a class="headerlink" href="#42-risks" title="Permanent link">&para;</a></h3>
+<p>Lowering the cost of producing software artifacts also lowers the cost of producing <em>incorrect</em> software artifacts.</p>
+<p>Generative AI can produce outputs that look convincing while containing subtle errors. When generation becomes faster, incorrect assumptions or implementation mistakes can also be reproduced and scaled more quickly.</p>
+<p>More generated output may therefore produce more work elsewhere. Someone still needs to review, integrate, test, maintain, and ultimately decide whether that output can be trusted.</p>
+<p>AI can also affect developer knowledge and autonomy. If increasingly important decisions are delegated to systems whose reasoning or behaviour is difficult to understand, determining responsibility becomes more complicated.</p>
+<p>The positive and concerned perspectives are therefore not descriptions of two separate futures.</p>
+<p>They are competing effects of the same technology.</p>
+<h2 id="5-ai-productivity-depends-on-context">5. AI Productivity Depends on Context<a class="headerlink" href="#5-ai-productivity-depends-on-context" title="Permanent link">&para;</a></h2>
+<p>Claims about AI and developer productivity require particular care.</p>
+<p>Butler et al. challenge several simplified narratives about generative AI in software engineering
+[R2]. The paper presents eight myths. They are useful because each myth begins with something
+that may be true in a limited situation and then extends it into a general claim that the evidence
+does not support. The appropriate response is neither automatic enthusiasm nor automatic
+rejection. It is to define the task, boundary, outcome, and evidence.</p>
+<h3 id="51-myth-1-developers-spend-most-of-their-time-writing-code">5.1 Myth 1: Developers Spend Most of Their Time Writing Code<a class="headerlink" href="#51-myth-1-developers-spend-most-of-their-time-writing-code" title="Permanent link">&para;</a></h3>
+<p>The myth treats software development as if most professional effort consisted of typing source
+code. Butler et al. summarize studies showing a much broader working day. One Microsoft study of
+more than 450 engineers reported that code writing accounted for about 14 percent of their time
+[R2]. The precise percentage will vary across roles and organizations, but the larger point is
+stable: software engineering includes requirements, design, planning, communication, code
+review, testing, debugging, integration, deployment, maintenance, and learning.</p>
+<p><strong>Applied interpretation.</strong> An AI tool may generate a REST controller in two minutes, but that
+demonstration excludes the time needed to determine the correct authorization rule, understand
+the existing domain model, configure dependencies, review the change, test boundary cases,
+integrate it with other services, and support it after release. If we measure only the two minutes
+of generation, we have measured the easiest visible slice rather than the work of delivering a
+reliable feature.</p>
+<p><strong>Testing example.</strong> Generating a JUnit class quickly is not the same as designing a strong test
+suite. The difficult work may be finding the correct test basis, selecting representative cases,
+defining trustworthy oracles, controlling dependencies, and explaining residual risk.</p>
+<p>🧭 <strong>Better question:</strong> Which parts of the complete activity become faster, and what proportion
+of the total work do those parts represent?</p>
+<h3 id="52-myth-2-writing-code-is-the-bottleneck">5.2 Myth 2: Writing Code Is the Bottleneck<a class="headerlink" href="#52-myth-2-writing-code-is-the-bottleneck" title="Permanent link">&para;</a></h3>
+<p>Even when code authoring becomes faster, delivery may not. A development system moves only as
+quickly as the work that constrains its flow. The constraint may be requirements clarification,
+architecture, access to an environment, review, testing, security approval, deployment, or a
+decision by another team. Accelerating code generation can therefore move the bottleneck rather
+than remove it [R2].</p>
+<p>The scale of the opportunity also matters. If code authoring occupies roughly 15 percent of the
+work, making that activity twice as fast cannot by itself double overall productivity. In the
+paper's simplified calculation, the theoretical overall improvement remains below 15 percent
+because most of the work is untouched [R2].</p>
+<p><strong>Applied interpretation.</strong> Imagine that a team previously completed five candidate changes per
+week and could review five. With AI, it can generate fifteen, while review capacity remains five.
+The result is not three times as much delivered value. It is a growing queue, less time per review,
+and pressure to merge work that has not been adequately understood.</p>
+<p><strong>Testing example.</strong> If AI generates hundreds of tests, test execution may become slower and
+maintenance more expensive. Duplicated or shallow tests can obscure the few tests that actually
+detect important failures. More tests can therefore create a test-suite optimization problem.</p>
+<p>🧭 <strong>Better question:</strong> After this activity is accelerated, where does work wait next, and how
+does the new queue affect quality and risk?</p>
+<h3 id="53-myth-3-lines-of-ai-generated-code-are-the-best-measure-of-impact">5.3 Myth 3: Lines of AI-Generated Code Are the Best Measure of Impact<a class="headerlink" href="#53-myth-3-lines-of-ai-generated-code-are-the-best-measure-of-impact" title="Permanent link">&para;</a></h3>
+<p>Lines of code measure volume, not value. The paper points to longstanding empirical criticism of
+lines of code as a valid productivity measure. More code may represent a useful feature,
+unnecessary duplication, generated boilerplate, or technical debt. A careful refactoring can
+improve a system by deleting code. Counting generated lines rewards production even when the
+organization's goal is reliable, maintainable software rather than a larger codebase [R2].</p>
+<p>Single-number targets can also change behaviour. If developers are rewarded for generated lines
+or completed story points, they gain an incentive to optimize the measure rather than the system.
+Review, collaboration, design quality, and maintainability can then appear to slow productivity
+even though they protect the product from future cost and failure.</p>
+<p><strong>Applied interpretation.</strong> Suppose an assistant generates 1,000 lines for a feature that could
+have reused an existing 100-line component. A dashboard may report substantial AI contribution,
+while the team inherits another implementation, more dependencies, duplicated logic, and a
+larger maintenance surface. The metric points in the opposite direction from the desired outcome.</p>
+<p><strong>Testing example.</strong> The equivalent mistake in testing is counting test methods without asking
+what they detect. Fifty tests that repeat the same happy path provide less evidence than a small
+set covering important partitions, boundaries, failures, and interactions.</p>
+<p>Useful evaluation combines several forms of evidence, such as lead time, review effort, escaped
+defects, change-failure rate, maintainability, user outcome, and the confidence of the people who
+must operate the system. No single metric is sufficient.</p>
+<p>🧭 <strong>Better question:</strong> What outcome improved, what new cost or risk appeared, and which evidence
+connects the AI-supported work to that outcome?</p>
+<h3 id="54-myth-4-ai-helps-all-tasks-and-engineers-equally">5.4 Myth 4: AI Helps All Tasks and Engineers Equally<a class="headerlink" href="#54-myth-4-ai-helps-all-tasks-and-engineers-equally" title="Permanent link">&para;</a></h3>
+<p>The effect of AI depends on the task, the developer, the codebase, the prompt, and the surrounding
+workflow. Butler et al. review studies reporting positive, neutral, and negative productivity
+effects. They also describe evidence that familiar, well-understood tasks can benefit more than
+unfamiliar work, and that semantically similar prompts can produce different code and different
+correctness outcomes [R2].</p>
+<p>The differences are not minor details. One 2025 study discussed in the paper found an average
+18-percent increase in implementation time for experienced open-source developers using AI. In a
+separate prompt-sensitivity study, semantically equivalent rewrites produced different code in 46
+percent of cases and changed correctness in 28 percent [R2]. These findings do not establish that
+AI is generally harmful. They show why a result from one task, population, or prompt cannot be
+generalized automatically.</p>
+<p><strong>Applied interpretation.</strong> Boilerplate for a familiar framework may be a strong use case because
+the patterns are common and the result is easy to compare with known examples. Diagnosing a rare
+failure in a proprietary legacy system is different: the model may lack the local architecture,
+historical decisions, production data, and organizational constraints required to reason well.</p>
+<p>Experience also has a double effect. A novice may obtain a larger apparent speed-up but lack the
+knowledge required to detect an invented API or unsafe assumption. An expert may evaluate the
+output more reliably but gain less because the task was already familiar. Neither “novices benefit
+most” nor “experts benefit most” is universally correct.</p>
+<p><strong>Testing example.</strong> AI may propose conventional boundary tests for a clear numeric range but
+struggle with a stateful business rule whose oracle depends on several requirements. Its value
+changes with the structure of the test basis.</p>
+<p>🧭 <strong>Better question:</strong> For which task, developer, system, and quality criterion was the effect
+observed, and does that context match ours?</p>
+<h3 id="55-myth-5-ai-will-turn-individual-developers-into-10x-developers">5.5 Myth 5: AI Will Turn Individual Developers into 10x Developers<a class="headerlink" href="#55-myth-5-ai-will-turn-individual-developers-into-10x-developers" title="Permanent link">&para;</a></h3>
+<p>The “10x developer” story treats productivity as an individual and stable property. Real software
+delivery is collaborative. Work crosses product decisions, architecture, implementation, review,
+testing, operations, security, and stakeholder feedback. Performance on one isolated task does
+not imply tenfold impact across that system [R2].</p>
+<p>This is why a frequently repeated result such as a 55-percent gain on a controlled task cannot be
+read as a 55-percent gain in organizational delivery, much less proof of a “10x developer.” The
+measurement boundary excludes much of the coordination and knowledge sharing required in
+real-world software work [R2].</p>
+<p><strong>Applied interpretation.</strong> A developer supported by several agents might produce ten feature
+branches while teammates can review only two and the product owner can validate only one. The
+individual appears highly productive if branches are counted; the team may deliver no faster and
+may now carry more unfinished work.</p>
+<p>The story also hides knowledge sharing. A locally fast solution can reduce team performance if no
+one else understands it, if architectural decisions are not recorded, or if reviewers must
+reconstruct the reasoning from generated code.</p>
+<p><strong>Testing example.</strong> A person who generates many passing tests is not necessarily a stronger
+tester. Strong testing depends on what faults the tests can reveal, how well the oracles represent
+intended behaviour, and whether the suite remains understandable and maintainable.</p>
+<p>🧭 <strong>Better question:</strong> How does AI change the performance, shared understanding, and delivered
+outcomes of the team and system, not merely the output of one individual?</p>
+<h3 id="56-myth-6-it-is-up-to-each-developer-to-make-ai-work">5.6 Myth 6: It Is Up to Each Developer to Make AI Work<a class="headerlink" href="#56-myth-6-it-is-up-to-each-developer-to-make-ai-work" title="Permanent link">&para;</a></h3>
+<p>Giving individuals an AI license does not redesign an engineering organization. Sustainable
+benefit may require approved tools, secure access to relevant context, training, usage policies,
+evaluation criteria, time to experiment, revised review practices, and agreement about where
+human decisions remain mandatory. These are organizational responsibilities [R2].</p>
+<p>The paper observes that organizations have invested heavily in licenses while the practices for
+using them effectively are still emerging. Access is therefore an input, not evidence of improved
+performance. As with earlier productivity transformations, value depends on changes to the larger
+system of work [R2].</p>
+<p><strong>Applied interpretation.</strong> Consider a developer asked to “use AI more” without guidance. The
+developer must independently decide whether source code may be shared, how generated code should
+be attributed, which tasks are suitable, how to verify the output, and how to explain failures.
+Different developers create incompatible practices, while the organization attributes weak
+results to individual resistance. The missing element is a supported workflow, not motivation
+alone.</p>
+<p><strong>Testing example.</strong> An organization that permits generated tests should also define evidence
+expectations: tests must trace to a test basis, run in CI, use reviewed oracles, expose important
+limitations, and receive independent challenge where risk is high.</p>
+<p>🧭 <strong>Better question:</strong> Which organizational conditions, controls, training, and workflow changes
+are required for people to use the tool effectively and responsibly?</p>
+<h3 id="57-myth-7-high-performing-ai-tools-will-be-adopted-automatically">5.7 Myth 7: High-Performing AI Tools Will Be Adopted Automatically<a class="headerlink" href="#57-myth-7-high-performing-ai-tools-will-be-adopted-automatically" title="Permanent link">&para;</a></h3>
+<p>Technical capability is only one condition for adoption. Trust, usability, workflow fit,
+autonomy, learning time, privacy, environmental concerns, fear of de-skilling, and perceptions of
+professional competence also matter. Butler et al. discuss a competence penalty in which some
+people may be judged more harshly for using AI even when their output is identical, as well as a
+gap between tool use and trust in tool accuracy [R2].</p>
+<p>The paper illustrates that gap with survey figures: 80 percent of developers reported using AI
+tools, while only 29 percent reported trusting their accuracy [R2]. Frequency of use and justified
+trust are therefore different variables. The competence penalty also means adoption can carry a
+social cost, reported particularly for women and older engineers, even when the resulting work is
+the same.</p>
+<p><strong>Applied interpretation.</strong> A tool can score well on a benchmark and still fail in practice if it
+interrupts developers, cannot access the relevant repository safely, produces changes that are
+difficult to review, or creates uncertainty about ownership. Mandatory adoption can further
+reduce trust when people cannot choose how the tool participates in their work.</p>
+<p><strong>Testing example.</strong> A test generator may find useful cases but remain unused if developers cannot
+understand why a test was generated, if the tests are flaky, or if maintenance costs exceed the
+initial benefit. Explainability and controllability are therefore practical adoption qualities,
+not decorative extras.</p>
+<p>🧭 <strong>Better question:</strong> What would make intended users trust, understand, and integrate this tool
+into real work, and what evidence shows that adoption is beneficial rather than merely frequent?</p>
+<h3 id="58-myth-8-with-genai-enterprises-can-innovate-at-startup-speed">5.8 Myth 8: With GenAI, Enterprises Can Innovate at Startup Speed<a class="headerlink" href="#58-myth-8-with-genai-enterprises-can-innovate-at-startup-speed" title="Permanent link">&para;</a></h3>
+<p>Startups and established enterprises operate under different constraints. A startup may build a
+greenfield prototype using public frameworks and tolerate rapid change. An enterprise may depend
+on proprietary or legacy systems, contractual interfaces, regulated data, compliance approval,
+backward compatibility, and customers who expect production reliability. AI can help in both
+settings, but it does not erase these structural differences [R2].</p>
+<p><strong>Applied interpretation.</strong> Generating a new payment-service prototype is not equivalent to
+changing a payment service used across several countries. The enterprise change may require data
+migration, compatibility testing, security review, audit evidence, operational monitoring,
+rollback planning, and coordination with many dependent teams. These activities represent real
+quality obligations, not avoidable bureaucracy.</p>
+<p><strong>Testing example.</strong> A startup may validate an early feature with a small user group. An
+enterprise may need regression testing across many integrations, performance environments,
+accessibility requirements, security controls, and contractual service levels before release.</p>
+<p>🧭 <strong>Better question:</strong> Which constraints explain the delivery time, which can AI genuinely
+reduce, and which must remain because they protect users, systems, and organizational obligations?</p>
+<h3 id="59-what-the-eight-myths-have-in-common">5.9 What the Eight Myths Have in Common<a class="headerlink" href="#59-what-the-eight-myths-have-in-common" title="Permanent link">&para;</a></h3>
+<p>The myths share a pattern: they substitute a visible local measure for a broader engineering
+outcome.</p>
+<table>
+<thead>
+<tr>
+<th>Myth focuses on</th>
+<th>What it overlooks</th>
+<th>Evidence needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time writing code</td>
+<td>The rest of the lifecycle</td>
+<td>End-to-end work distribution</td>
+</tr>
+<tr>
+<td>Coding speed</td>
+<td>Constraints and queues elsewhere</td>
+<td>Flow and bottleneck evidence</td>
+</tr>
+<tr>
+<td>Lines generated</td>
+<td>Quality, value, and maintenance</td>
+<td>Outcome and lifecycle measures</td>
+</tr>
+<tr>
+<td>Average benefit</td>
+<td>Task, person, system, and prompt variation</td>
+<td>Context-specific evaluation</td>
+</tr>
+<tr>
+<td>Individual output</td>
+<td>Team throughput and shared understanding</td>
+<td>Team and delivery outcomes</td>
+</tr>
+<tr>
+<td>Personal tool skill</td>
+<td>Organizational workflow and governance</td>
+<td>Supported-practice evidence</td>
+</tr>
+<tr>
+<td>Benchmark performance</td>
+<td>Trust, usability, autonomy, and fit</td>
+<td>Adoption-quality evidence</td>
+</tr>
+<tr>
+<td>Startup velocity</td>
+<td>Legacy, scale, regulation, and reliability</td>
+<td>Comparable-context evidence</td>
+</tr>
+</tbody>
+</table>
+<p>The practical conclusion is not that AI has no productivity value. It is that productivity is a
+socio-technical property. Claims about improvement must connect tool use to meaningful outcomes
+across people, process, software, and time.</p>
+<h2 id="6-programming-is-becoming-differently-difficult">6. Programming Is Becoming Differently Difficult<a class="headerlink" href="#6-programming-is-becoming-differently-difficult" title="Permanent link">&para;</a></h2>
+<p>The eight myths challenge claims that AI automatically increases software-engineering
+productivity. Osborn offers a complementary cognitive argument: AI did not simply make
+programming easier; it changed <em>where the difficulty is located</em> [R4].</p>
+<p>Programming has historically required developers to maintain and manipulate several interacting
+abstractions. Syntax, APIs, control flow, data flow, state, and architecture compete for limited
+working memory, while long-term memory supplies familiar patterns and problem-solving strategies.
+Stable mental models allow a developer to predict how a change will propagate through a system.
+They are cognitively expensive to construct, fragile under interruption, and expensive to rebuild.</p>
+<p>AI coding assistants can act as external memory. They retrieve syntax, generate boilerplate,
+reconstruct common API patterns, and produce variants without requiring the developer to recall
+every low-level detail. Osborn connects this to three ways of understanding cognition [R4]:</p>
+<ul>
+<li><strong>Distributed cognition:</strong> thinking is performed by a system that includes people and external
+  artifacts, not only by an isolated individual.</li>
+<li><strong>Cognitive load theory:</strong> offloading syntax and boilerplate may reduce extraneous load and leave
+  more working-memory capacity for higher-level reasoning.</li>
+<li><strong>The extended mind:</strong> a reliably available and habitually used assistant can become part of the
+  programmer's effective cognitive process, shaping how problems are understood and solved.</li>
+</ul>
+<p>This redistribution creates a hybrid cognitive system. The machine retrieves patterns and drafts
+candidate solutions. The human shapes intent and must check, interpret, integrate, reorganize,
+edit, or reject the result. The hard question moves from <strong>“How do I write this?”</strong> toward
+<strong>“Does this make sense here, and how would I know?”</strong> [R4].</p>
+<h3 id="61-what-ai-can-offload">6.1 What AI Can Offload<a class="headerlink" href="#61-what-ai-can-offload" title="Permanent link">&para;</a></h3>
+<p>AI can reduce the immediate cost of:</p>
+<ul>
+<li>recalling exact syntax and library details,</li>
+<li>producing routine or repetitive code,</li>
+<li>finding common API usage patterns,</li>
+<li>generating a first-pass implementation, and</li>
+<li>reconstructing a previously expressed solution in another form.</li>
+</ul>
+<p>This can lower the entry barrier to programming and help experienced developers preserve
+attention for the larger problem. It also explains why students and practitioners can complete
+some tasks faster.</p>
+<p>However, faster completion and deeper learning are different outcomes. Osborn discusses research
+in which AI assistance improved task performance or progress while gains in learning and ease of
+understanding were small or unstable. Students working faster also reported uncertainty about how
+or why suggestions worked [R4]. An artifact can therefore improve before the person's mental model
+improves.</p>
+<h3 id="62-what-ai-does-not-remove">6.2 What AI Does Not Remove<a class="headerlink" href="#62-what-ai-does-not-remove" title="Permanent link">&para;</a></h3>
+<p>Syntactically valid code can still be semantically wrong, inappropriate for the system, insecure,
+or difficult to maintain. Developers still need enough structural understanding to ask “why” and
+“why not,” simulate likely behaviour, identify causal paths, and detect when a plausible solution
+violates a less visible constraint.</p>
+<p>The work that remains includes:</p>
+<ul>
+<li>conceptual clarification and problem decomposition,</li>
+<li>architectural reasoning and interface design,</li>
+<li>impact analysis across a codebase,</li>
+<li>debugging, refactoring, and maintenance,</li>
+<li>constraint negotiation and security reasoning,</li>
+<li>constructing tests and trustworthy oracles, and</li>
+<li>integrating generated output into human-directed intent.</li>
+</ul>
+<p>These activities depend on durable mental models. Excessive offloading can weaken those models: a
+developer may receive increasingly capable output while becoming less able to predict, explain,
+or repair the resulting system. AI therefore shifts cognitive load rather than eliminating it.</p>
+<h3 id="63-four-shifts-in-programming-work">6.3 Four Shifts in Programming Work<a class="headerlink" href="#63-four-shifts-in-programming-work" title="Permanent link">&para;</a></h3>
+<p>Osborn organizes the change into four shifts [R4]:</p>
+<ol>
+<li><strong>The field opens.</strong> Lower recall barriers allow more people to begin producing software, but
+   producing <em>good</em> software still requires judgment about systems and consequences.</li>
+<li><strong>The work becomes differently difficult.</strong> Syntax and API problems become less prominent,
+   while appropriateness, maintainability, integration, and system constraints become more
+   prominent.</li>
+<li><strong>Education changes.</strong> Memorization becomes less central, while architecture, interfaces,
+   state, failure modes, test construction, security, and long-term maintainability become more
+   important. Students still need to analyse and modify what AI produces.</li>
+<li><strong>The programmer becomes an orchestrating agent.</strong> Expertise increasingly means maintaining
+   system integrity, coordinating human and machine contributions, and deciding what matters—not
+   merely remembering the most or typing the fastest.</li>
+</ol>
+<p>This is not an argument that foundational knowledge is obsolete. Judgment requires something to
+judge <em>with</em>. A developer who cannot read code, trace state, understand dependencies, or recognize
+relevant quality risks cannot reliably validate an assistant's output.</p>
+<h3 id="64-why-this-strengthens-the-case-for-testing">6.4 Why This Strengthens the Case for Testing<a class="headerlink" href="#64-why-this-strengthens-the-case-for-testing" title="Permanent link">&para;</a></h3>
+<p>Testing is one of the practices through which judgment becomes explicit and inspectable. If AI
+produces a candidate implementation, a tester must still determine:</p>
+<ul>
+<li>which requirement or risk provides the test basis,</li>
+<li>which inputs and conditions can expose a failure,</li>
+<li>which oracle distinguishes acceptable from unacceptable behaviour,</li>
+<li>whether generated tests share the implementation's assumptions,</li>
+<li>what the observed evidence supports, and</li>
+<li>what remains outside the evidence.</li>
+</ul>
+<p>For example, an assistant may generate a booking method and a passing test. Both artifacts may
+assume that a wallet is charged before the provider accepts the booking, even though the intended
+business rule says the opposite. Execution alone cannot reveal the shared misunderstanding. A
+reviewed requirement, an independently designed decision table, or a stakeholder example is
+needed to challenge the common assumption.</p>
+<p>🧭 <strong>Principle: Preserve the mental model while offloading mechanics.</strong> Delegate recall and
+routine transformation when useful, but retain enough system understanding to predict behaviour,
+challenge output, explain evidence, and recover when the tool is wrong.</p>
+<p>🧪 <strong>Discussion: Where did the difficulty move?</strong> Choose one activity in which you use AI—for
+example learning an API, implementing a feature, debugging, or constructing tests—and answer:</p>
+<ol>
+<li>What recall, search, or production work did AI reduce?</li>
+<li>What comprehension, validation, integration, or maintenance work became more important?</li>
+<li>Which internal mental model do you still need in order to detect a plausible error?</li>
+<li>What test or other independent evidence would expose the most important shared blind spot?</li>
+</ol>
+<p>Finish with one conditional claim: <strong>“AI makes this activity easier when ..., but differently
+difficult because ...”</strong></p>
+<h2 id="7-four-forces-for-examining-ai-mediated-change">7. Four Forces for Examining AI-Mediated Change<a class="headerlink" href="#7-four-forces-for-examining-ai-mediated-change" title="Permanent link">&para;</a></h2>
+<p>Abrahão et al. use McLuhan's Tetrad to examine disruptive technologies through four connected
+effects [R1]. We can translate the tetrad into practical questions about our own work and
+learning.</p>
+<table>
+<thead>
+<tr>
+<th>Practical label</th>
+<th>Tetrad term</th>
+<th>Question to ask</th>
+<th>Example to examine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Can do now</strong></td>
+<td>Enhances</td>
+<td>What can AI help me create, understand, or attempt that was previously out of reach?</td>
+<td>Produce a runnable prototype from a partial idea</td>
+</tr>
+<tr>
+<td><strong>Need less</strong></td>
+<td>Obsolesces</td>
+<td>Which task or knowledge appears less necessary, and what might be lost with it?</td>
+<td>Recall syntax while losing familiarity with the underlying API</td>
+</tr>
+<tr>
+<td><strong>Matters more</strong></td>
+<td>Retrieves</td>
+<td>Which human skill, older practice, or knowledge becomes valuable again?</td>
+<td>Requirements clarification, review, source checking, and explicit rationale</td>
+</tr>
+<tr>
+<td><strong>Can backfire</strong></td>
+<td>Reverses</td>
+<td>When pushed too far, how can the benefit become dependence, error, or harm?</td>
+<td>Faster generation produces more weak code than a team can review safely</td>
+</tr>
+</tbody>
+</table>
+<p>The four forces should not be treated as four independent lists. They reveal tensions. A tool may
+enhance exploration while obsolescing some routine knowledge. That change may retrieve the need
+for careful review and reverse into dependence when users can no longer assess the generated
+work.</p>
+<p>🛠️ <strong>Technique: Four-forces analysis.</strong> Name a concrete AI-supported practice, answer all four
+questions, then connect at least two answers with a cause-and-effect statement. The connections
+are more informative than isolated predictions.</p>
+<p>🧪 <strong>Collaborative activity: AI and our work.</strong> Add one concrete example to each of the four
+areas. Read several peer examples, respond to two with a consequence, counterexample, or
+question, and revise one original answer. The group output is one contested change and one
+capability that future IT professionals should protect or strengthen. This can be completed on a
+shared board or as a written exchange; the reasoning does not depend on a particular tool.</p>
+<h2 id="8-ai-adoption-happens-inside-organizations">8. AI Adoption Happens Inside Organizations<a class="headerlink" href="#8-ai-adoption-happens-inside-organizations" title="Permanent link">&para;</a></h2>
+<p>Software developers rarely work in isolation.</p>
+<p>They work within organizations that have processes, responsibilities, policies, legacy systems, security constraints, management structures, and established ways of working.</p>
+<p>Consequently, the technical capability of an AI tool and its organizational adoption are different questions.</p>
+<h3 id="81-top-down-adoption">8.1 Top-Down Adoption<a class="headerlink" href="#81-top-down-adoption" title="Permanent link">&para;</a></h3>
+<p>In a top-down approach, management identifies AI as strategically important and encourages or
+mandates its adoption.</p>
+<p>This can provide resources, infrastructure, governance, and organizational legitimacy.</p>
+<p>However, a management decision does not automatically translate into useful changes in everyday development practice.</p>
+<h3 id="82-bottom-up-adoption">8.2 Bottom-Up Adoption<a class="headerlink" href="#82-bottom-up-adoption" title="Permanent link">&para;</a></h3>
+<p>Adoption can also emerge from developers experimenting with tools and incorporating them into their own workflows.</p>
+<p>This may reveal useful applications quickly because adoption starts from concrete development problems.</p>
+<p>However, local experimentation does not automatically become an organizational capability either.</p>
+<p>Understanding AI adoption therefore requires examining both the technology and the organization in which it is introduced.</p>
+<h2 id="9-potential-use-is-different-from-actual-use">9. Potential Use Is Different from Actual Use<a class="headerlink" href="#9-potential-use-is-different-from-actual-use" title="Permanent link">&para;</a></h2>
+<p>Rico and Öberg's study of managers' perspectives on generative AI in software engineering
+illustrates this distinction [R3]. The workshop compared potential applications, current uses
+reported by participating organizations, and challenges associated with adoption.</p>
+<table>
+<thead>
+<tr>
+<th>Task area</th>
+<th>Potential uses</th>
+<th>Current uses</th>
+<th>Key challenges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirements and design</td>
+<td>Generate or refine requirements; propose designs</td>
+<td>Limited or pilot use</td>
+<td>Ambiguous outputs; organizational hesitation around non-coding tasks</td>
+</tr>
+<tr>
+<td>Code development and maintenance</td>
+<td>Real-time suggestions; debugging; optimization</td>
+<td>ChatGPT and Copilot in active use; some automated documentation</td>
+<td>Intellectual-property concerns; code quality and security; long-term maintainability</td>
+</tr>
+<tr>
+<td>Testing and quality assurance</td>
+<td>Generate tests; create synthetic data</td>
+<td>Mostly internal trials or prototypes</td>
+<td>Correctness of generated tests; high trust threshold for quality-assurance work</td>
+</tr>
+<tr>
+<td>Management and education</td>
+<td>Estimate effort; support internal training and prompt engineering</td>
+<td>Skill-building workshops; limited estimation pilots</td>
+<td>Uncertain long-term impact; privacy of training data</td>
+</tr>
+</tbody>
+</table>
+<p>For software testing, the most relevant gap concerns testing and quality assurance. Managers could
+identify clear potential applications, including test generation and synthetic test data, while
+actual organizational use often remained at the level of internal experiments or prototypes.</p>
+<p>One central problem was trust.</p>
+<p>Generating a test is relatively easy. Determining whether that test is <em>correct</em> is a different problem.</p>
+<p>A generated test may compile and pass while testing the wrong behaviour, encoding an incorrect assumption, or providing weak evidence about the system.</p>
+<p>The study represents the situation observed during that period. AI tools and organizational
+practices continue to evolve rapidly. The more general observation remains useful:
+<strong>technical potential does not automatically become reliable organizational practice.</strong></p>
+<p>🧭 <strong>Principle: Separate capability from evidence of use.</strong> A tool demonstration establishes
+that an activity may be possible. It does not establish that the activity is reliable,
+maintainable, secure, accepted by practitioners, or valuable in an organizational workflow.</p>
+<h2 id="10-ai-increases-the-value-of-engineering-judgment">10. AI Increases the Value of Engineering Judgment<a class="headerlink" href="#10-ai-increases-the-value-of-engineering-judgment" title="Permanent link">&para;</a></h2>
+<p>Generative AI substantially reduces the cost of producing a plausible answer.</p>
+<p>That makes another capability increasingly important: deciding whether the answer should be accepted.</p>
+<p>Engineering judgment can be organized around three questions.</p>
+<h3 id="101-what-matters">10.1 What Matters?<a class="headerlink" href="#101-what-matters" title="Permanent link">&para;</a></h3>
+<p>Engineers need to understand the purpose of the system.</p>
+<p>Who are its users?</p>
+<p>What requirements matter?</p>
+<p>Which values and constraints should guide the system?</p>
+<p>What risks are important?</p>
+<p>An AI system cannot make these questions disappear by producing an implementation.</p>
+<h3 id="102-what-is-credible">10.2 What Is Credible?<a class="headerlink" href="#102-what-is-credible" title="Permanent link">&para;</a></h3>
+<p>Software engineers also need to evaluate evidence.</p>
+<p>Where did a claim come from?</p>
+<p>Which assumptions does it depend on?</p>
+<p>Can the result be reproduced?</p>
+<p>What evidence supports accepting the generated artifact?</p>
+<p>An answer that looks plausible is not necessarily an answer that is justified.</p>
+<h3 id="103-what-could-fail">10.3 What Could Fail?<a class="headerlink" href="#103-what-could-fail" title="Permanent link">&para;</a></h3>
+<p>Engineering also requires anticipating failure.</p>
+<p>What happens at boundaries?</p>
+<p>How do components interact?</p>
+<p>How might the system be misused?</p>
+<p>What happens when its environment changes?</p>
+<p>What remains uncertain?</p>
+<p>AI can propose solutions to these questions. Engineers still need to determine whether those solutions provide sufficient evidence for action.</p>
+<h2 id="11-responsibility-remains-human">11. Responsibility Remains Human<a class="headerlink" href="#11-responsibility-remains-human" title="Permanent link">&para;</a></h2>
+<p>Engineering judgment leads directly to responsibility.</p>
+<p>Three additional questions become important.</p>
+<h3 id="111-what-should-we-accept">11.1 What Should We Accept?<a class="headerlink" href="#111-what-should-we-accept" title="Permanent link">&para;</a></h3>
+<p>Every software system contains trade-offs and residual risks.</p>
+<p>Someone must decide whether the available evidence is sufficient to release, deploy, or continue operating a system.</p>
+<h3 id="112-who-is-affected">11.2 Who Is Affected?<a class="headerlink" href="#112-who-is-affected" title="Permanent link">&para;</a></h3>
+<p>Software decisions affect stakeholders.</p>
+<p>Consequences can involve accessibility, fairness, privacy, sustainability, security, and other dimensions that extend beyond whether the program executes successfully.</p>
+<h3 id="113-who-is-responsible">11.3 Who Is Responsible?<a class="headerlink" href="#113-who-is-responsible" title="Permanent link">&para;</a></h3>
+<p>AI can participate in development activities, but organizations still require mechanisms for oversight, escalation, recovery, and accountability.</p>
+<p>This distinction leads to one of the central messages of this chapter:</p>
+<blockquote>
+<p><strong>Making software is not the same as engineering software responsibly.</strong></p>
+</blockquote>
+<p>The reason to study software engineering therefore does not disappear simply because machines become better at generating software artifacts.</p>
+<p>The work increasingly involves <strong>judgment, evidence, consequences, and responsibility</strong>.</p>
+<h2 id="12-from-ai-to-software-testing-building-justified-confidence">12. From AI to Software Testing: Building Justified Confidence<a class="headerlink" href="#12-from-ai-to-software-testing-building-justified-confidence" title="Permanent link">&para;</a></h2>
+<p>This argument provides a central motivation for software testing.</p>
+<p>Software testing is not merely the activity of finding bugs.</p>
+<p>A broader objective is to develop <strong>justified confidence in software</strong>.</p>
+<p>Confidence should not come from the fact that an implementation looks plausible, that an AI system produced it, that the program compiled, or even that a collection of tests passed.</p>
+<p>Confidence should be supported by evidence.</p>
+<p>A capable tester learns to:</p>
+<ul>
+<li>turn requirements and risks into purposeful tests</li>
+<li>automate repeatable checks using professional tools</li>
+<li>interpret coverage, mutation, continuous integration, and failure evidence</li>
+<li>audit plausible AI-generated work rather than accepting it at face value</li>
+<li>reason about people, sustainability, and consequences</li>
+</ul>
+<p>Testing therefore connects directly to the challenge introduced at the beginning of this chapter.</p>
+<p>As generating software becomes easier, establishing whether that software deserves our confidence becomes increasingly important.</p>
+<h2 id="13-capabilities-needed-in-software-testing">13. Capabilities Needed in Software Testing<a class="headerlink" href="#13-capabilities-needed-in-software-testing" title="Permanent link">&para;</a></h2>
+<p>Software testing requires more than knowing how to run a tool or write a test method. Testers need
+four connected capabilities that turn observations into defensible conclusions about quality and
+risk.</p>
+<h3 id="131-frame-and-explain">13.1 Frame and Explain<a class="headerlink" href="#131-frame-and-explain" title="Permanent link">&para;</a></h3>
+<p>A tester must explain what quality means for the system, who values each quality characteristic,
+and which risks deserve attention. Precise distinctions—such as error, fault, failure,
+verification, and validation—help connect an observed problem to its possible causes and
+consequences.</p>
+<p>This capability also includes framing bounded claims. “The system works” is too broad. “The
+booking rule behaves as specified for the identified duration boundaries” states what is being
+claimed and where the evidence applies.</p>
+<h3 id="132-design">13.2 Design<a class="headerlink" href="#132-design" title="Permanent link">&para;</a></h3>
+<p>A tester must translate requirements, risks, system structure, changes, and failure hypotheses
+into purposeful tests. This involves choosing suitable techniques rather than generating cases at
+random. Specification-based, structural, regression, mutation, and AI-system testing answer
+different questions and expose different blind spots.</p>
+<p>Test design also requires a credible oracle: a reasoned basis for deciding whether an observed
+result is acceptable. An automatically generated expected value is not trustworthy merely because
+it appears beside an automatically generated test.</p>
+<h3 id="133-execute-and-interpret">13.3 Execute and Interpret<a class="headerlink" href="#133-execute-and-interpret" title="Permanent link">&para;</a></h3>
+<p>Testers use automation frameworks, controlled dependencies, coverage tools, mutation systems,
+continuous integration, logs, and other artifacts to make checks reproducible. The central skill,
+however, is interpreting what the result demonstrates.</p>
+<p>A passing test shows that one check produced its expected result under particular conditions. A
+coverage report shows which structures executed. A mutation result shows whether selected changes
+were detected. None of these observations alone establishes that the system is correct, safe, or
+fit for every purpose.</p>
+<h3 id="134-evaluate-and-communicate">13.4 Evaluate and Communicate<a class="headerlink" href="#134-evaluate-and-communicate" title="Permanent link">&para;</a></h3>
+<p>Testers evaluate the credibility and relevance of sources, generated artifacts, measurements, and
+research claims. They compare evidence produced through different assumptions and identify shared
+blind spots. They also consider residual risk and broader consequences involving stakeholders,
+security, accessibility, fairness, privacy, and sustainability.</p>
+<p>The result must be communicated honestly: what was tested, what was observed, what conclusion is
+supported, and what remains uncertain. This makes testing evidence usable in engineering and
+release decisions.</p>
+<p>These capabilities return us to the opening questions.</p>
+<p>AI may change what software engineers produce and how they produce it. The corresponding testing
+challenge is to determine <strong>what matters, what evidence is credible, what could fail, and what we
+are prepared to accept responsibility for</strong>.</p>
+<h2 id="14-summary-and-self-check">14. Summary and Self-Check<a class="headerlink" href="#14-summary-and-self-check" title="Permanent link">&para;</a></h2>
+<p>Software engineering has repeatedly changed as tools, abstractions, and collaboration mechanisms
+have changed. Generative AI is another major transformation, but faster artifact production does
+not remove requirements, integration, verification, maintenance, consequences, or responsibility.
+It changes where the difficult work appears.</p>
+<p>The four readings provide complementary perspectives. Abrahão et al. describe an AI-mediated,
+human-centred software ecosystem and supply the four-forces lens. Butler et al. challenge simple
+productivity stories and show why task and organizational context matter. Osborn explains the
+cognitive relocation from recall and routine production toward mental models, reasoning,
+validation, and orchestration. Rico and Öberg show a gap between potential applications and
+current company practice, especially where a high trust threshold applies.</p>
+<p>Software testing responds by building justified confidence. Tests, reviews, coverage, mutation,
+continuous integration, research, and critical reflection contribute different evidence to
+bounded claims. People still decide what matters, what evidence is credible, what could fail,
+what risk to accept, and who is affected.</p>
+<p>Before continuing, check whether you can answer these questions:</p>
+<ol>
+<li>How has automation historically redistributed software engineering work?</li>
+<li>In which four roles can AI appear in the development context?</li>
+<li>Why does faster code generation not guarantee faster software delivery?</li>
+<li>What does it mean to say that AI makes programming differently difficult?</li>
+<li>Which mental models must a developer preserve when AI offloads syntax and boilerplate?</li>
+<li>What do enhances, obsolesces, retrieves, and reverses ask you to examine?</li>
+<li>What is the difference between a potential use and reliable organizational practice?</li>
+<li>Why is a passing AI-generated test not automatically credible evidence?</li>
+<li>What do the questions “What matters?”, “What is credible?”, and “What could fail?” contribute
+   to engineering judgment?</li>
+<li>Which four capabilities are needed to turn testing observations into defensible conclusions?</li>
+<li>What evidence should accompany a passing build or coverage number?</li>
+<li>How would you now answer the two opening questions?</li>
+</ol>
+<h2 id="references-and-further-reading">References and Further Reading<a class="headerlink" href="#references-and-further-reading" title="Permanent link">&para;</a></h2>
+<p>[R1] Silvia Abrahão, John Grundy, Mauro Pezzè, Margaret-Anne Storey, and Damian A. Tamburri.
+"Software Engineering by and for Humans in an AI Era." <em>ACM Transactions on Software
+Engineering and Methodology</em>, 34(5), Article 129, 2025.
+https://doi.org/10.1145/3715111</p>
+<p>[R2] Jenna Butler, Brian Houck, Margaret-Anne Storey, Travis Lowdermilk, Steven Clarke, and
+Emerson Murphy-Hill. "Eight Myths on Software Engineering and GenAI." 2026.
+https://doi.org/10.1145/3807963</p>
+<p>[R3] Sergio Rico and Lena-Maria Öberg. "Challenges and Opportunities for Generative AI in
+Software Engineering: A Managerial View." <em>Proceedings of the 33rd ACM International Conference
+on the Foundations of Software Engineering</em>, 1338-1344, 2025.</p>
+<p>[R4] Jeremy Osborn. "AI Didn't Make Programming Easier. It Just Made It Differently Difficult."
+<em>Communications of the ACM</em>, 69(8), 18-21, 2026. Licensed under CC BY 4.0.
+https://doi.org/10.1145/3795534</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "content.action.edit", "toc.integrate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

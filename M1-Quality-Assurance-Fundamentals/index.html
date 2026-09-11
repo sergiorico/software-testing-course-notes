@@ -1,0 +1,1744 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Narrative course notes supporting the Software Testing course (DV033G) at Mid Sweden University.">
+      
+      
+        <meta name="author" content="Sergio Rico">
+      
+      
+      
+        <link rel="prev" href="../M0-Introduction-and-Motivation/">
+      
+      
+        <link rel="next" href="../M2-Specification-Based-and-Unit-Testing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>M1: Quality Assurance and Fundamentals - Software Testing Course Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-quality-assurance-and-fundamentals-of-software-testing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Software Testing Course Notes" class="md-header__button md-logo" aria-label="Software Testing Course Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Testing Course Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              M1: Quality Assurance and Fundamentals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sergiorico/software-testing-course-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sergiorico/software-testing-course-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Software Testing Course Notes" class="md-nav__button md-logo" aria-label="Software Testing Course Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Testing Course Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sergiorico/software-testing-course-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sergiorico/software-testing-course-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M0-Introduction-and-Motivation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M0: Introduction and Motivation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M1: Quality Assurance and Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M1: Quality Assurance and Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slides
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#icon-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Icon Key
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-read-retrieve-and-predict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Read: Retrieve and Predict
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-software-testing-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why Software Testing Matters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Why Software Testing Matters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-mission-critical-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Mission-Critical Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-software-in-daily-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Software in Daily Life
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-complex-autonomous-and-ai-assisted-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Complex, Autonomous, and AI-Assisted Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-faults-errors-failures-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Faults, Errors, Failures, and Debugging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-why-exhaustive-testing-is-impossible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Why Exhaustive Testing Is Impossible
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-what-software-testing-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. What Software Testing Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. What Software Testing Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-testing-principles-as-evidence-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Testing Principles as Evidence Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-qa-qc-verification-validation-testing-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. QA, QC, Verification, Validation, Testing, and Debugging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-quality-attributes-and-isoiec-25010" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Quality Attributes and ISO/IEC 25010
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Quality Attributes and ISO/IEC 25010">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-applying-quality-attributes-to-walkmates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Applying Quality Attributes to WalkMates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-test-levels-sut-pyramid-and-v-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Test Levels, SUT, Pyramid, and V-Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Test Levels, SUT, Pyramid, and V-Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-v-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 V-Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-the-testing-process-and-core-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. The Testing Process and Core Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-professional-context-istqb-swebok-and-testing-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Professional Context: ISTQB, SWEBOK, and Testing Education
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-summary-self-check-and-lab-1-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Summary, Self-Check, and Lab 1 Preparation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M2-Specification-Based-and-Unit-Testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M2: Specification-Based and Unit Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M3-Structural-Testing-and-Coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M3: Structural Testing and Coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M4-Test-Optimization-Mutation-Regression-CI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M4: Test Optimization, Mutation, Regression, CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M5-Research-Trends-and-Testing-AI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M5: Research Trends and Testing AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M6-Ethical-and-Societal-Aspects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M6: Ethical and Societal Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/sergiorico/software-testing-course-notes/edit/main/M1-Quality-Assurance-Fundamentals.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="chapter-1-quality-assurance-and-fundamentals-of-software-testing">Chapter 1: Quality Assurance and Fundamentals of Software Testing<a class="headerlink" href="#chapter-1-quality-assurance-and-fundamentals-of-software-testing" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Draft v0.5 (2026-08-08). Revised against HT26 Lectures 1-2 and current WalkMates.</p>
+</blockquote>
+<h2 id="slides">Slides<a class="headerlink" href="#slides" title="Permanent link">&para;</a></h2>
+<p><em>Placeholder: lecture slides for this module will be linked here.</em></p>
+<h2 id="icon-key">Icon Key<a class="headerlink" href="#icon-key" title="Permanent link">&para;</a></h2>
+<ul>
+<li>📘 <strong>Concept</strong>: a core idea or term.</li>
+<li>🧭 <strong>Principle</strong>: a rule of thumb that guides testing decisions.</li>
+<li>🛠️ <strong>Technique</strong>: something testers actively do.</li>
+<li>🧱 <strong>Artifact</strong>: a document, test, report, or other work product.</li>
+<li>🧪 <strong>Exercise</strong>: something to produce, discuss, or reuse in lab work.</li>
+</ul>
+<h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ol>
+<li>Explain why testing is necessary even when software appears to work.</li>
+<li>Distinguish quality assurance, quality control, verification, validation, testing, and
+   debugging.</li>
+<li>Explain the relation between human error, fault, error state, and failure.</li>
+<li>Identify a test basis, test condition, test case, test suite, and oracle.</li>
+<li>Select a suitable test level for a given risk.</li>
+<li>Relate one WalkMates requirement to at least one testable quality attribute.</li>
+<li>Write a minimal defect report with expected behavior, observed behavior, reproduction steps,
+   and risk.</li>
+</ol>
+<h2 id="before-you-read-retrieve-and-predict">Before You Read: Retrieve and Predict<a class="headerlink" href="#before-you-read-retrieve-and-predict" title="Permanent link">&para;</a></h2>
+<p>Without searching the chapter, write a short answer to both questions:</p>
+<ol>
+<li>If every existing test passes, why might release still be risky?</li>
+<li>What is the difference between observing a failure and locating its cause?</li>
+</ol>
+<p>Keep the answers. Revisit them after Sections 4 and 5 and correct any vague use of “bug,”
+“proof,” or “works.”</p>
+<p>📘 <strong>Core idea: Testing as evidence.</strong> A test is not only code that runs. A test is a small
+evidence-producing argument: under these conditions, with this input and this oracle, the system
+behaved acceptably or problematically. A test does not prove quality. It contributes evidence
+for a limited claim.</p>
+<h2 id="1-why-software-testing-matters">1. Why Software Testing Matters<a class="headerlink" href="#1-why-software-testing-matters" title="Permanent link">&para;</a></h2>
+<p>Software testing matters because software has become infrastructure. It is no longer confined to
+desktop tools or websites that can fail quietly. Software controls medical devices, trading
+systems, aircraft, cars, banking apps, logistics, public services, authentication, classrooms,
+media platforms, and increasingly the tools used to create more software. When software fails,
+the consequences can be personal, financial, social, legal, and sometimes physical.</p>
+<p>📘 <strong>Concept: Software quality.</strong> Software quality is the degree to which a software product or
+system satisfies stated and implied needs under specified conditions. This definition is more
+useful than saying that software is "good" or "bad", because it forces us to ask: whose needs,
+which conditions, and what evidence?</p>
+<p>Testing is one of the ways we collect that evidence. It can reveal defects, increase confidence,
+expose uncertainty, improve design discussions, and make risk visible before users carry the
+cost. A passing test suite does not mean that the software is correct. It means that the
+selected tests did not reveal a problem under the selected conditions. The strength of a test
+suite depends on how well the selected cases represent relevant risks, requirements, boundaries,
+states, and usage scenarios.</p>
+<h3 id="11-mission-critical-software">1.1 Mission-Critical Software<a class="headerlink" href="#11-mission-critical-software" title="Permanent link">&para;</a></h3>
+<p>Mission-critical software is software whose failure can threaten life, safety, essential
+service, financial stability, or major public trust. The history of software engineering is full
+of cases where a small technical defect became a large system failure because it was embedded in
+an unsafe process, a fragile architecture, or a weak organizational culture.</p>
+<p>The Therac-25 radiation therapy accidents are a classic safety case. Several patients received
+massive radiation overdoses in the 1980s, and the later analysis by Leveson and Turner became a
+foundational warning about overconfidence in software-controlled safety systems [R1]. The lesson
+is not simply "a programmer made a bug." The lesson is that safety requires independent checks,
+clear error reporting, hazard analysis, usable interfaces, conservative design, and skepticism
+about assumptions.</p>
+<p>Other cases show the same pattern in different domains. The Boeing 737 MAX accidents are a
+safety-critical aviation example [R2]. The Knight Capital trading incident is a financial
+automation example where a deployment and control failure produced a loss of more than $460
+million in about 45 minutes [R3]. We will return to such cases later; for now, the important
+idea is that defects become dangerous when they meet scale, speed, weak controls, or high
+consequence.</p>
+<p><strong>WalkMates proxy.</strong> WalkMates is not safety-critical in the same way as aircraft or medical
+devices, but the same reasoning still applies. A booking rule can affect trust, fairness, money,
+and user confidence. A small pricing or capacity defect is a low-stakes classroom example of the
+same principle: software decisions have consequences.</p>
+<h3 id="12-software-in-daily-life">1.2 Software in Daily Life<a class="headerlink" href="#12-software-in-daily-life" title="Permanent link">&para;</a></h3>
+<p>Most people interact with software before breakfast: phone alarms, payment apps, transit
+schedules, digital identity, messaging, course platforms, maps, music, health apps, smart home
+devices, and authentication flows. Because these systems are ordinary, their reliability can
+become invisible. We notice them only when they fail.</p>
+<p>The 2024 CrowdStrike incident made this dependence visible. A faulty content update affected an
+estimated 8.5 million Windows devices, less than one percent of Windows machines, yet the impact
+was broad because many affected devices belonged to organizations running critical services
+[R4]. CrowdStrike's own root-cause summary identified a mismatch between expected and provided
+input fields that resulted in an out-of-bounds memory read and a system crash [R5]. A seemingly
+technical defect became a public disruption because the software was widely deployed in important
+environments.</p>
+<p>Daily-life software also carries social expectations. A payment app must be secure and fast. A
+learning platform must be available when assignments are due. An accessibility feature must work
+for users who depend on it, not only for users who treat it as optional. Testing is therefore not
+only about finding crashes. It is about checking whether software continues to support ordinary
+life under realistic conditions.</p>
+<p><strong>WalkMates proxy.</strong> A WalkMates user may rely on the service to book a dog walk, volunteer at a
+shelter, or arrange pet sitting. The system is educational, but the domain lets us practice
+thinking about real users: providers, seekers, payments, trust, scheduling, and explanations.</p>
+<h3 id="13-complex-autonomous-and-ai-assisted-systems">1.3 Complex, Autonomous, and AI-Assisted Systems<a class="headerlink" href="#13-complex-autonomous-and-ai-assisted-systems" title="Permanent link">&para;</a></h3>
+<p>Modern software is complex because it is interconnected. A single user action may involve a web
+front end, backend services, databases, authentication providers, payment services, logging,
+cloud infrastructure, third-party APIs, machine-learning components, and background jobs. No one
+person can hold all interactions in memory.</p>
+<p>Modern software is also increasingly autonomous. It observes, predicts, recommends, filters,
+prioritizes, and sometimes acts. This changes the tester's question. Instead of asking only
+"Does this function return the right value?", we also ask "What happens if the system is
+confident but wrong?", "Can the system recover?", and "How will humans understand and override
+it?"</p>
+<p>Software is now often written with AI assistance. Tools such as GitHub Copilot can suggest code,
+explain code, propose edits, validate files, and support agent-style workflows [R6].
+AI-generated code is not automatically wrong, but it is not automatically trustworthy either. In
+security-relevant prompt scenarios, Pearce et al. found that approximately 40% of generated
+programs contained vulnerabilities [R7]. This does not mean that 40% of all AI-generated code is
+vulnerable, but it shows why AI-generated code still requires review, testing, and
+security-aware oracles. Later work comparing AI-assisted code generation tools also found
+differences in correctness, security, reliability, and maintainability across tools and tasks
+[R8].</p>
+<p><strong>WalkMates proxy.</strong> In WalkMates, AI assistance is welcome, but the reflection asks what AI
+suggested, what you kept, what you changed, and why. The assessed skill is not pressing a
+button; it is judging the evidence.</p>
+<h2 id="2-faults-errors-failures-and-debugging">2. Faults, Errors, Failures, and Debugging<a class="headerlink" href="#2-faults-errors-failures-and-debugging" title="Permanent link">&para;</a></h2>
+<p>The failure stories above are easier to understand once we have a vocabulary for how problems
+move from human work into system behavior.</p>
+<p>📘 <strong>Concept: Human error.</strong> A human error is a mistake made by a person: misunderstanding a
+requirement, choosing the wrong operator, forgetting a boundary, misconfiguring a deployment, or
+making an unsafe assumption.</p>
+<p>📘 <strong>Concept: Fault / defect / bug.</strong> A fault is the static defect introduced into an artifact.
+It may be in source code, requirements, test data, configuration, documentation, or a prompt.</p>
+<p>📘 <strong>Concept: Error state.</strong> An error state is an incorrect internal state during execution.
+The system is now wrong internally, even if the user has not yet observed a failure.</p>
+<p>📘 <strong>Concept: Failure.</strong> A failure is externally visible behavior that violates expectation:
+wrong output, crash, rejection, acceptance, delay, unsafe action, misleading message, or missing
+response.</p>
+<p><strong>Terminology note.</strong> ISTQB commonly uses <em>error</em> or <em>mistake</em> for the human action that
+introduces a defect. Dependability literature also uses <em>error</em> for an incorrect internal
+state [R15]. This course says <strong>human error</strong> and <strong>error state</strong> so the two meanings remain
+visible.</p>
+<p>The chain is important:</p>
+<pre><code class="language-text">human error -&gt; fault/defect -&gt; error state -&gt; failure
+</code></pre>
+<p>Not every fault causes a failure every time the program runs. A fault may remain hidden until a
+specific input, state, timing condition, configuration, or dependency activates it. This is why
+boundary cases, state transitions, and realistic combinations matter. Testing tries to choose
+conditions that are likely to expose faults before users do.</p>
+<p>The observer and context matter. A method-level test may observe a wrong return value, an API
+client may observe an incorrect status, an operator may observe latency or logs, and a user may
+observe that the task cannot be completed. This does not make correctness arbitrary: the
+expected behaviour, observer, and context must be specified.</p>
+<p>🛠️ <strong>Technique: Debugging.</strong> Debugging is the systematic activity of localizing,
+understanding, and fixing a defect. It is related to testing but not the same activity. Testing
+reveals evidence of a problem; debugging investigates and repairs the cause. Confirmation testing
+then checks whether the fix resolved the original failure, and regression testing checks for
+unintended effects.</p>
+<p><strong>Running example: FR-4.1.</strong> WalkMates requirement <code>FR-4.1</code> says that a booking duration must
+be between 30 and 1440 minutes inclusive. Suppose a developer implements the lower boundary as
+<code>durationMinutes &gt; 30</code> instead of <code>durationMinutes &gt;= 30</code>. The human error is misunderstanding
+or overlooking the inclusive boundary. The fault is the wrong comparison. The error state occurs
+when the system treats exactly 30 minutes as invalid. The failure is visible when a user cannot
+book the minimum allowed duration.</p>
+<blockquote>
+<p><strong>Common student mistake.</strong> "A failing test always means the code is wrong."</p>
+<p><strong>Better.</strong> A failing test may indicate a code defect, a test defect, an environment problem,
+missing test data, or an unclear oracle.</p>
+</blockquote>
+<p>🧪 <strong>Exercise: Fault-chain artifact.</strong> Start with this visible failure: "A booking request is
+rejected, but the user receives no useful explanation." Write four short lines: possible error
+state, possible fault, possible human error, and the test level that should have caught it.</p>
+<h2 id="3-why-exhaustive-testing-is-impossible">3. Why Exhaustive Testing Is Impossible<a class="headerlink" href="#3-why-exhaustive-testing-is-impossible" title="Permanent link">&para;</a></h2>
+<p>Software testing is difficult because software behavior grows combinatorially. Every input,
+state, configuration, dependency, device, permission, network condition, and timing variation can
+interact with the others. Exhaustively testing every possible situation is usually impossible.</p>
+<p>Consider a mobile payment app such as Swish. Even a simplified test space can explode quickly:
+operating systems, phone models, network conditions, battery states, app permissions, app
+versions, authentication states, banks, payment amounts, notification settings, accessibility
+settings, and error recovery paths. If these factors have only a few values each, their product
+can already produce hundreds of thousands of scenarios. Testing each scenario manually for five
+minutes would require years of continuous work.</p>
+<p>🛠️ <strong>Technique: Combinatorial reasoning.</strong> When testers list variables and possible values, they
+are not claiming that every combination will be tested. They are making complexity visible so
+that selection becomes deliberate. The tester can then choose boundaries, risks,
+representative cases, pairwise combinations, high-impact workflows, or automated checks.</p>
+<p>Even a tiny WalkMates model grows quickly. If listing status has 5 values, trust tier has 4
+values, and wallet relation has 3 values, then there are <code>5 x 4 x 3 = 60</code> possible combinations
+before duration, provider capacity, listing type, browser behavior, database state, concurrency,
+invalid formats, or AI explanations are considered.</p>
+<p>A slightly larger model is already much bigger:</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Example values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listing status</td>
+<td><code>AVAILABLE</code>, <code>BOOKED</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, <code>CANCELLED</code></td>
+</tr>
+<tr>
+<td>Trust tier</td>
+<td><code>NEW</code>, <code>VERIFIED</code>, <code>TRUSTED</code>, <code>PRO_SITTER</code></td>
+</tr>
+<tr>
+<td>Seeker booking count</td>
+<td>below limit, at limit, above limit</td>
+</tr>
+<tr>
+<td>Provider capacity</td>
+<td>below capacity, at capacity, above capacity</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>below 30, exactly 30, normal, exactly 480, above 480, exactly 1440, above 1440</td>
+</tr>
+<tr>
+<td>Listing type</td>
+<td>dog walk, day visit, pet sitting, house sitting, shelter volunteer</td>
+</tr>
+<tr>
+<td>Wallet relation</td>
+<td>less than total, equal to total, greater than total</td>
+</tr>
+</tbody>
+</table>
+<p>This reduced model gives <code>5 x 4 x 3 x 3 x 7 x 5 x 3 = 37,800</code> combinations before we add
+technical environment details. The answer is not to give up. The answer is to test
+intelligently.</p>
+<p>🧭 <strong>Principle: Selection is unavoidable.</strong> Since exhaustive testing is impractical, every test
+strategy is a selection strategy. The quality question is whether the selection is justified by
+risk, requirements, prior failures, boundaries, usage, and cost.</p>
+<p>🛠️ <strong>Technique: Risk-to-evidence loop.</strong> Use the same five steps throughout the course:</p>
+<ol>
+<li>Identify a plausible failure.</li>
+<li>Estimate consequence, likelihood, and uncertainty.</li>
+<li>Select evidence that could expose or reduce that uncertainty.</li>
+<li>Run the test or evaluation and interpret the result.</li>
+<li>Reassess the remaining risk and choose the next action.</li>
+</ol>
+<p>🧪 <strong>Exercise: Missing-test artifact.</strong> Choose one missing WalkMates test. Write: one
+requirement or risk it relates to, one testing principle that explains why it matters, one
+expected outcome, and one sentence explaining residual risk.</p>
+<blockquote>
+<p><strong>Common student mistake.</strong> "I tested valid input, so boundary behavior is covered."</p>
+<p><strong>Better.</strong> Valid input includes normal values and boundary values. For <code>FR-4.1</code>, 30 and 1440
+minutes are valid, not merely nearby examples.</p>
+</blockquote>
+<h2 id="4-what-software-testing-is">4. What Software Testing Is<a class="headerlink" href="#4-what-software-testing-is" title="Permanent link">&para;</a></h2>
+<p>📘 <strong>Concept: Software testing.</strong> Software testing is a lifecycle activity that evaluates
+software products and related work products to find defects, assess quality, reduce risk, and
+support decisions about whether the product is fit for its intended use.</p>
+<p>First, testing is lifecycle-wide. It can begin before code exists by reviewing requirements,
+models, user stories, interface contracts, risks, and acceptance criteria. Waiting until the end
+of development makes defects more expensive to understand and fix.</p>
+<p>Second, testing includes both static and dynamic work. Static testing evaluates artifacts without
+executing the program: reviews, inspections, walkthroughs, requirement checks, static analysis,
+and code reading. Dynamic testing executes software with selected inputs and observes behavior.
+Static testing can examine requirements, software models, design documents, and source code;
+dynamic testing executes the program to expose possible failures.</p>
+<p>Third, testing needs evidence and an oracle. A test is not only an input; it also needs a way to
+decide whether the observed result is acceptable.</p>
+<p><strong>Scope note.</strong> SWEBOK's compact definition of software testing emphasizes dynamic execution,
+while ISTQB also teaches static testing activities within the testing process. In this course,
+<em>testing</em> is used as the broad lifecycle practice; <strong>dynamic testing</strong> is named explicitly when
+software execution is required.</p>
+<p>📘 <strong>Concept: Test basis.</strong> A test basis is any source of information used to derive tests. It
+may be a requirement, user story, regulation, design model, interface contract, bug report,
+source code, risk analysis, or stakeholder expectation.</p>
+<p>📘 <strong>Concept: Test condition.</strong> A test condition is something about the system that could be
+tested. For <code>FR-4.1</code>, useful conditions include lower boundary behavior, upper boundary
+behavior, rejection below the minimum, rejection above the maximum, and ordinary valid duration.</p>
+<p>🧱 <strong>Artifact: Test case.</strong> A test case is the smallest unit of testing evidence. It describes
+the situation to be checked: preconditions, inputs or actions, execution conditions, and expected
+outcome. In executable tests, the expected result is usually encoded as an assertion.</p>
+<p>🧱 <strong>Artifact: Test suite.</strong> A test suite is a collection of related test cases selected for a
+purpose, such as testing a feature, a risk, a regression area, or a quality attribute. A suite
+should provide breadth, not just repetition. Ten tests that all check the same happy path do not
+give the same evidence as a suite that covers normal behavior, boundaries, invalid inputs, and
+important interaction cases.</p>
+<p>🧱 <strong>Artifact: Test oracle.</strong> A test oracle is the principle or mechanism used to recognize
+whether behavior is correct or problematic. Without an oracle, a test can execute a program but
+cannot judge the result.</p>
+<table>
+<thead>
+<tr>
+<th>Oracle type</th>
+<th>How it decides expected behavior</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Specified oracle</td>
+<td>Uses requirements, models, contracts, or standards.</td>
+<td><code>FR-4.1</code> says duration must be between 30 and 1440 minutes.</td>
+</tr>
+<tr>
+<td>Derived oracle</td>
+<td>Uses another artifact, older version, reference implementation, or calculation.</td>
+<td>A spreadsheet or known-good implementation computes the expected price.</td>
+</tr>
+<tr>
+<td>Implicit oracle</td>
+<td>Uses general assumptions such as "the system should not crash."</td>
+<td>A web request should not produce a 500 error for ordinary invalid input.</td>
+</tr>
+<tr>
+<td>Human oracle</td>
+<td>Uses expert or stakeholder judgment.</td>
+<td>A teacher judges whether an AI-generated explanation is clear enough for students.</td>
+</tr>
+</tbody>
+</table>
+<p>The oracle problem appears when the expected result is uncertain, subjective, expensive to
+compute, or missing from the specification. AI systems often have this problem: two different
+answers may both be acceptable, but unsafe, irrelevant, biased, or instruction-following output
+may still be clearly wrong. The tester then needs alternative oracles, such as invariants,
+metamorphic relations, safety rules, review rubrics, or comparison against curated examples.</p>
+<p>🛠️ <strong>Technique: Basic testing activity loop.</strong> A simple testing loop is: identify the
+objective, select inputs, determine the expected outcome, set up the execution environment,
+execute the program, and analyze the result. This loop appears simple, but every step contains
+judgment.</p>
+<p><strong>Running example: FR-4.1 as testing evidence.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Testing concept</th>
+<th>FR-4.1 example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test basis</td>
+<td>Requirement <code>FR-4.1</code>: booking duration must be 30-1440 minutes inclusive.</td>
+</tr>
+<tr>
+<td>Test condition</td>
+<td>Lower boundary behavior.</td>
+</tr>
+<tr>
+<td>Test case</td>
+<td>Try to create a booking with duration <code>30</code>.</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>The requirement says <code>30</code> is valid.</td>
+</tr>
+<tr>
+<td>Expected outcome</td>
+<td>Booking duration validation accepts <code>30</code>.</td>
+</tr>
+<tr>
+<td>Related boundary cases</td>
+<td><code>29</code>, <code>30</code>, <code>31</code>, <code>1439</code>, <code>1440</code>, <code>1441</code>.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Common student mistake.</strong> "The test passed, so the program is correct."</p>
+<p><strong>Better.</strong> The test passed for this input, environment, and oracle. That is useful evidence,
+but only for a limited claim.</p>
+</blockquote>
+<h3 id="41-testing-principles-as-evidence-rules">4.1 Testing Principles as Evidence Rules<a class="headerlink" href="#41-testing-principles-as-evidence-rules" title="Permanent link">&para;</a></h3>
+<p>ISTQB expresses several testing principles that are useful because they protect us from
+overclaiming. They are not abstract slogans; they are reminders about what kind of evidence a
+test can and cannot provide [R9].</p>
+<table>
+<thead>
+<tr>
+<th>🧭 Principle</th>
+<th>Meaning</th>
+<th>WalkMates implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Testing shows the presence, not the absence, of defects.</td>
+<td>A passing suite gives evidence for selected cases, not proof that no defects exist.</td>
+<td>Passing <code>FR-4.1</code> boundary tests does not prove all booking rules are correct.</td>
+</tr>
+<tr>
+<td>Exhaustive testing is impossible.</td>
+<td>Real systems have too many inputs, states, and environments to test everything.</td>
+<td>The simplified booking model already produces thousands of combinations.</td>
+</tr>
+<tr>
+<td>Early testing saves time and money.</td>
+<td>Defects found in requirements or design are cheaper than defects found after implementation.</td>
+<td>Ambiguous wording around "inclusive duration limit" should be fixed before tests and code diverge.</td>
+</tr>
+<tr>
+<td>Defects cluster together.</td>
+<td>Some components, workflows, or changes often contain more defects than others.</td>
+<td>If many failures involve booking creation, focus deeper analysis on <code>BookingService</code> and its rules.</td>
+</tr>
+<tr>
+<td>Tests wear out, also called the pesticide paradox.</td>
+<td>Repeating the same tests becomes less effective for finding new defects; suites need review and renewal.</td>
+<td>If every test uses 60-minute bookings, add boundary, invalid, and state-based cases.</td>
+</tr>
+<tr>
+<td>Testing is context-dependent.</td>
+<td>Testing priorities depend on domain, risk, users, technology, and consequences.</td>
+<td>WalkMates testing emphasizes rule clarity, learning value, CI evidence, and AI-explanation risks.</td>
+</tr>
+<tr>
+<td>Absence of defects is a fallacy.</td>
+<td>Software with few observed defects can still fail if it does not meet user needs.</td>
+<td>A technically correct booking flow can still fail validation if users cannot understand rejection messages.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-qa-qc-verification-validation-testing-and-debugging">5. QA, QC, Verification, Validation, Testing, and Debugging<a class="headerlink" href="#5-qa-qc-verification-validation-testing-and-debugging" title="Permanent link">&para;</a></h2>
+<p>Testing sits among several related concepts. Separating them prevents confusion.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Short description</th>
+<th>Main question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📘 Quality Assurance (QA)</td>
+<td>Process-oriented activities that help prevent defects and improve confidence in the way software is built.</td>
+<td>Are we using practices that make quality more likely?</td>
+</tr>
+<tr>
+<td>📘 Quality Control (QC)</td>
+<td>Product-oriented checking activities that evaluate whether an artifact meets criteria.</td>
+<td>Does this artifact meet the expected standard?</td>
+</tr>
+<tr>
+<td>📘 Verification</td>
+<td>Evaluation against specifications, rules, models, or agreed expectations.</td>
+<td>Are we building the product right?</td>
+</tr>
+<tr>
+<td>📘 Validation</td>
+<td>Evaluation against real stakeholder needs and intended use.</td>
+<td>Are we building the right product?</td>
+</tr>
+<tr>
+<td>🛠️ Testing</td>
+<td>Static and dynamic activities used to find defects, assess quality, and reduce risk.</td>
+<td>What evidence do we have about behavior and quality?</td>
+</tr>
+<tr>
+<td>🛠️ Debugging</td>
+<td>Locating, understanding, and fixing a defect after a failure or suspicious behavior.</td>
+<td>What caused the observed problem, and how should it be repaired?</td>
+</tr>
+</tbody>
+</table>
+<p>Testing contributes to quality control and supports quality assurance, but QA is broader than
+testing. QA includes preventive process activities such as standards, reviews, risk management,
+CI practices, coding guidelines, and improvement routines. A team can test heavily and still
+have weak QA if it has unclear requirements, uncontrolled deployment, poor reviews, or no
+learning loop after failures.</p>
+<p>Verification checks conformance: requirements, rules, designs, contracts, formats, boundaries,
+and expected outputs. Validation checks fitness: usefulness, user value, understandability,
+appropriateness, and real-world effectiveness.</p>
+<p>A system can pass verification and fail validation. For example, a booking form may enforce
+every rule correctly but still confuse users so badly that they abandon the workflow. A system
+can also appear valid in a demo while failing verification because hidden boundary rules are
+wrong.</p>
+<p><strong>WalkMates proxy.</strong> Verifying WalkMates means checking rules such as duration <code>[30, 1440]</code>,
+trust-tier limits, provider capacity, and price calculation. Validating WalkMates means asking
+whether the system helps seekers and providers understand and complete realistic care
+arrangements.</p>
+<h2 id="6-quality-attributes-and-isoiec-25010">6. Quality Attributes and ISO/IEC 25010<a class="headerlink" href="#6-quality-attributes-and-isoiec-25010" title="Permanent link">&para;</a></h2>
+<p>📘 <strong>Concept: Quality attribute.</strong> A quality attribute is a named property of a system that
+matters to stakeholders. Examples include reliability, security, performance efficiency,
+maintainability, interaction capability, compatibility, flexibility, and safety. In the 2023
+model, portability is addressed below the top-level flexibility characteristic rather than as a
+tenth top-level characteristic.</p>
+<p>Quality attributes are important because they turn vague judgments into discussable
+requirements. "The system should be good" is not testable. "The booking confirmation should
+respond within two seconds under expected course-load conditions" is much closer to testable.
+"The system should be secure" is too broad. "A Listing description remains inside the declared
+untrusted-data boundary without changing the prompt's control structure" is testable
+deterministically; that check alone does not establish how a live model will behave.</p>
+<p>ISO/IEC 25010:2023 defines a product quality model for ICT and software products, organized into
+nine characteristics and subcharacteristics [R12]. For this chapter, focus on the nine top-level
+characteristics. Later modules can use subcharacteristics selectively when they are useful.</p>
+<h3 id="61-applying-quality-attributes-to-walkmates">6.1 Applying Quality Attributes to WalkMates<a class="headerlink" href="#61-applying-quality-attributes-to-walkmates" title="Permanent link">&para;</a></h3>
+<p>WalkMates handles money, identity data, trust, booking state, and user interaction. The stakes
+are educational, but the quality questions are realistic.</p>
+<table>
+<thead>
+<tr>
+<th>Quality attribute</th>
+<th>What it asks</th>
+<th>WalkMates example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Functional suitability</td>
+<td>Does the software provide the needed functions correctly?</td>
+<td>Is a valid Listing booked at the required price and state?</td>
+</tr>
+<tr>
+<td>Performance efficiency</td>
+<td>Does it respond within acceptable time and resource limits?</td>
+<td>Does booking confirmation complete within an agreed workload target?</td>
+</tr>
+<tr>
+<td>Compatibility</td>
+<td>Does it work with other systems and environments?</td>
+<td>Does the web/API contract work across supported clients and services?</td>
+</tr>
+<tr>
+<td>Interaction capability</td>
+<td>Can users understand and operate it effectively?</td>
+<td>Can a Seeker understand a rejection and recover?</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Does it keep working and recover from problems?</td>
+<td>Is the wallet unchanged after a gateway decline or timeout?</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Does it protect data and prevent unauthorized action?</td>
+<td>Does untrusted Listing text remain data without changing the prompt's control structure?</td>
+</tr>
+<tr>
+<td>Maintainability</td>
+<td>Can it be modified, analyzed, and tested efficiently?</td>
+<td>Can a rule change be located, tested, and released safely?</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Can it adapt to new contexts or stakeholder needs?</td>
+<td>Can a new Listing type or trust tier be introduced without scattered changes?</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Does it avoid unacceptable harm?</td>
+<td>Do failure modes prevent avoidable financial, privacy, or animal-care harm?</td>
+</tr>
+</tbody>
+</table>
+<p>🧪 <strong>Exercise: Quality-attribute artifact.</strong> Choose one WalkMates requirement and one quality
+attribute. Write one testable question. Use this pattern: "For <code>[quality attribute]</code>, I would
+test whether <code>[system behavior]</code> under <code>[condition]</code>."</p>
+<p><strong>WalkMates proxy.</strong> For <code>FR-4.1</code>, functional suitability asks whether valid durations are
+accepted and invalid durations are rejected. Interaction capability asks whether the user can
+understand why <code>29</code> minutes is rejected. Maintainability asks whether duration rules are easy to
+find, test, and change.</p>
+<h2 id="7-test-levels-sut-pyramid-and-v-model">7. Test Levels, SUT, Pyramid, and V-Model<a class="headerlink" href="#7-test-levels-sut-pyramid-and-v-model" title="Permanent link">&para;</a></h2>
+<p>📘 <strong>Concept: System Under Test (SUT).</strong> The SUT is the thing being tested. It may be a method,
+a class, a component, a service, an API, a user workflow, or the whole deployed system.</p>
+<p>The testing pyramid is a way to reason about granularity, dependencies, cost, and confidence.
+At the bottom are many small tests that run quickly and isolate narrow behavior. Higher levels
+exercise broader behavior with more dependencies and more realistic workflows, but they usually
+cost more to write, run, and diagnose.</p>
+<table>
+<thead>
+<tr>
+<th>Test level</th>
+<th>Typical SUT</th>
+<th>Dependency level</th>
+<th>Cost and speed</th>
+<th>What it is good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Component (unit)</td>
+<td>Separately testable class, function, or module</td>
+<td>Very low</td>
+<td>Fast and cheap</td>
+<td>Business rules, calculations, boundary behavior</td>
+</tr>
+<tr>
+<td>Component integration</td>
+<td>Interfaces among components inside the system</td>
+<td>Low to medium</td>
+<td>More setup</td>
+<td>Service/repository or class collaboration</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Complete integrated system</td>
+<td>High</td>
+<td>Slower and broader</td>
+<td>Functional flows and system qualities</td>
+</tr>
+<tr>
+<td>System integration</td>
+<td>Interfaces between this system and external systems</td>
+<td>High / environment-dependent</td>
+<td>Contract and infrastructure cost</td>
+<td>Payment gateway or external identity contract</td>
+</tr>
+<tr>
+<td>Acceptance</td>
+<td>Product behavior against stakeholder expectations</td>
+<td>Varies</td>
+<td>Often scenario-driven</td>
+<td>Readiness, business value, user/stakeholder fit</td>
+</tr>
+</tbody>
+</table>
+<p>Unit testing focuses on the smallest useful parts of the system. Integration testing checks
+collaboration between parts. System testing evaluates the complete integrated software in a
+realistic environment. Acceptance testing asks whether the product deserves to be accepted for
+its intended use. A mature strategy uses these levels together.</p>
+<p>🧭 <strong>Principle: Match the level to the risk.</strong> A pricing formula should usually be tested with
+unit tests because the rule is precise and isolated. A login flow with external authentication
+needs broader integration or system tests because the risk lives in collaboration. A user
+journey may need acceptance tests because the risk lives in whether the workflow makes sense.</p>
+<p><strong>WalkMates proxy.</strong> <code>FR-4.1</code> can be tested at several levels:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Example evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Component</td>
+<td>The <code>Booking</code> validation accepts <code>30</code> and <code>1440</code>, rejects <code>29</code> and <code>1441</code>.</td>
+</tr>
+<tr>
+<td>Component integration</td>
+<td><code>BookingService</code> does not persist an invalid request.</td>
+</tr>
+<tr>
+<td>System</td>
+<td>A web request with <code>29</code> minutes returns a useful validation response.</td>
+</tr>
+<tr>
+<td>System integration</td>
+<td>Usually not the first evidence for this local rule; use it only if an external client contract is at risk.</td>
+</tr>
+<tr>
+<td>Acceptance</td>
+<td>A user can understand the allowed duration range before submitting.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Common student mistake.</strong> "When a unit test passes, the feature works."</p>
+<p><strong>Better.</strong> A unit test can show that a small rule behaves correctly in isolation. It does not
+prove that the full workflow, data flow, UI, and user expectation are correct.</p>
+</blockquote>
+<h3 id="71-v-model">7.1 V-Model<a class="headerlink" href="#71-v-model" title="Permanent link">&para;</a></h3>
+<p>The V-model connects development artifacts on the left side with corresponding test activities
+on the right side. Requirements connect to acceptance testing. High-level design connects to
+system testing. Detailed design connects to integration testing. Coding connects to unit
+testing.</p>
+<p>For Chapter 1, you only need the mapping idea: different artifacts create different testing
+questions. Unit tests cannot validate a whole business workflow by themselves. Acceptance tests
+cannot efficiently diagnose every small calculation error. The levels complement each other.</p>
+<p>One useful trace is:</p>
+<table>
+<thead>
+<tr>
+<th>Development artifact</th>
+<th>Corresponding evidence question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stakeholder need</td>
+<td>Does acceptance evaluation show that the workflow solves the real need?</td>
+</tr>
+<tr>
+<td>System requirement</td>
+<td>Does system testing demonstrate the required end-to-end behaviour?</td>
+</tr>
+<tr>
+<td>Interface/design contract</td>
+<td>Do component- and system-integration tests establish collaboration?</td>
+</tr>
+<tr>
+<td>Component design and code</td>
+<td>Do component tests establish the local rule and boundaries?</td>
+</tr>
+</tbody>
+</table>
+<p>The V-model is a traceability aid, not a claim that development must follow a rigid waterfall.</p>
+<h2 id="8-the-testing-process-and-core-artifacts">8. The Testing Process and Core Artifacts<a class="headerlink" href="#8-the-testing-process-and-core-artifacts" title="Permanent link">&para;</a></h2>
+<p>Testing is not only execution. Professional testing moves from planning to closure, producing
+artifacts that help a team decide what to test, why to test it, how to judge results, and what
+evidence remains after execution.</p>
+<table>
+<thead>
+<tr>
+<th>Process activity</th>
+<th>Purpose</th>
+<th>Minimal artifacts</th>
+<th>WalkMates proxy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planning</td>
+<td>Establish objectives, scope, risks, responsibilities, schedule, and approach.</td>
+<td>Test plan or lightweight strategy.</td>
+<td>Decide that Lab 1 focuses on quality attributes, bug analysis, first test, and specification-based rules.</td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>Identify test conditions from the test basis.</td>
+<td>Test conditions, traceability notes.</td>
+<td>Mark <code>FR-4.1</code> as a duration rule worth testing.</td>
+</tr>
+<tr>
+<td>Design</td>
+<td>Create test cases, test data, expected outcomes, and procedures.</td>
+<td>Test cases, test data, expected results.</td>
+<td>Choose <code>29</code>, <code>30</code>, <code>31</code>, <code>1439</code>, <code>1440</code>, and <code>1441</code>.</td>
+</tr>
+<tr>
+<td>Implementation</td>
+<td>Prepare executable tests, suites, environments, scripts, and automation.</td>
+<td>Test suites, test environment, CI configuration.</td>
+<td>Implement JUnit 5 tests and make sure Maven/GitHub Actions runs them.</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>Run tests, compare actual and expected results, and record outcomes.</td>
+<td>Test logs, failure reports, defect reports.</td>
+<td>Run <code>mvn test</code>, inspect failures, and connect failed assertions to requirement IDs.</td>
+</tr>
+<tr>
+<td>Monitoring and control</td>
+<td>Track progress, quality, risk, and adapt the plan.</td>
+<td>Progress reports, metrics, dashboards.</td>
+<td>Use CI status, coverage, mutation score later, and reflection notes to decide what needs attention.</td>
+</tr>
+<tr>
+<td>Completion</td>
+<td>Summarize testing, archive evidence, and communicate residual risk.</td>
+<td>Test summary or closure report.</td>
+<td>Submit lab reflection: what was tested, what evidence exists, what surprised you, and what you would test next.</td>
+</tr>
+</tbody>
+</table>
+<p>🧱 <strong>Artifact: Defect report.</strong> A defect report should make a problem reproducible and useful.
+At minimum it should describe the observed failure, expected behavior, steps or data needed to
+reproduce it, environment information, severity or risk, and supporting evidence such as logs or
+screenshots.</p>
+<p>Minimal defect report for the running example:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirement</td>
+<td><code>FR-4.1</code>: duration must be 30-1440 minutes inclusive.</td>
+</tr>
+<tr>
+<td>Expected behavior</td>
+<td>A booking duration of <code>30</code> minutes is accepted.</td>
+</tr>
+<tr>
+<td>Observed behavior</td>
+<td>The system rejects <code>30</code> minutes as invalid.</td>
+</tr>
+<tr>
+<td>Reproduction steps</td>
+<td>Create or validate a booking request with <code>durationMinutes = 30</code>.</td>
+</tr>
+<tr>
+<td>Risk</td>
+<td>Minimum valid bookings cannot be made; boundary rule is implemented incorrectly.</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>Failing test name, assertion message, log, or CI run.</td>
+</tr>
+</tbody>
+</table>
+<p>🧪 <strong>Exercise: Write a defect report.</strong> Given the observed failure “a top-up of exactly 10.00 is
+rejected,” produce a minimal report using the fields above. Cite the relevant requirement, give
+reproducible steps and environment information, and distinguish the observed failure from your
+hypothesis about its cause.</p>
+<p>🧱 <strong>Artifact: Traceability.</strong> Traceability connects requirements, tests, results, and defects.
+It answers questions such as: which requirements have tests, which tests failed, which defects
+relate to which rules, and what evidence supports a release decision. Traceability can be a
+formal matrix in regulated systems or a lightweight mapping in a course project.</p>
+<p><strong>WalkMates proxy.</strong> When a test method name or comment cites <code>FR-4.1</code>, it creates a small trace
+from requirement to test. When a reflection explains that a failing test exposed a boundary
+misunderstanding, it creates a trace from result to learning.</p>
+<h2 id="9-professional-context-istqb-swebok-and-testing-education">9. Professional Context: ISTQB, SWEBOK, and Testing Education<a class="headerlink" href="#9-professional-context-istqb-swebok-and-testing-education" title="Permanent link">&para;</a></h2>
+<p>Software testing is a professional discipline with its own vocabulary, standards, roles,
+certifications, research venues, tools, and bodies of knowledge. Good testers are not people who
+"just click around." They design evidence.</p>
+<p>The International Software Testing Qualifications Board (ISTQB) provides a widely recognized
+certification scheme and syllabus for software testing. The Foundation Level v4.0.1 syllabus covers
+fundamentals of testing, testing principles, test levels, static testing, test analysis and
+design, black-box techniques, white-box techniques, experience-based techniques, test
+management, defect management, and test tools [R9]. It is useful here because it gives us common
+language.</p>
+<p>The Guide to the Software Engineering Body of Knowledge (SWEBOK) is an IEEE Computer Society
+body of knowledge that organizes software engineering knowledge into areas. Testing is one of
+those areas, connected to requirements, design, construction, maintenance, configuration
+management, quality, security, economics, and professional practice [R10].</p>
+<p>Garousi et al. mapped research on software-testing education and found that educators repeatedly
+face challenges such as motivating students, teaching complex concepts, keeping material
+industry-relevant, integrating testing into the curriculum, and providing adequate tools and
+realistic exercises [R11]. This is why this course uses a realistic system under test, CI, test
+reports, reflections, and project work instead of treating testing as a final-week add-on.</p>
+<p>For further study, Aniche's <em>Effective Software Testing</em> is a pragmatic developer-oriented book
+on writing useful automated tests [R13]. Ammann and Offutt's <em>Introduction to Software Testing</em>
+is a deeper theoretical anchor for input-space partitioning, coverage, logic-based testing, and
+other core techniques [R14].</p>
+<h2 id="10-summary-self-check-and-lab-1-preparation">10. Summary, Self-Check, and Lab 1 Preparation<a class="headerlink" href="#10-summary-self-check-and-lab-1-preparation" title="Permanent link">&para;</a></h2>
+<p>This chapter introduced five core skills: vocabulary, evidence, selection, oracles, and test
+levels. Keep returning to the evidence sentence: a test is a small claim under selected
+conditions, with selected input, judged by a selected oracle.</p>
+<p>Before starting Lab 1, check whether you can answer these questions:</p>
+<ol>
+<li>Why can testing show the presence of defects but not their absence?</li>
+<li>What is the difference between a fault and a failure?</li>
+<li>What makes a test oracle weak?</li>
+<li>Why is exhaustive testing impossible in WalkMates?</li>
+<li>Which quality attribute is most relevant for prompt injection in <code>MatchExplanationService</code>?</li>
+<li>When would a unit test be insufficient?</li>
+<li>What should a defect report contain?</li>
+<li>What evidence would convince you that <code>FR-4.4</code> is adequately tested?</li>
+</ol>
+<p>🧪 <strong>Lab 1 preparation artifact.</strong> Choose one rule from <code>FR-1.1</code>, <code>FR-1.2</code>, or <code>FR-1.3</code>, the
+requirements used by <code>SeekerSpecBasedTest</code>, and write:</p>
+<ol>
+<li>The requirement ID and its rule.</li>
+<li>One quality attribute it relates to.</li>
+<li>One test condition.</li>
+<li>One concrete test case with input and expected outcome.</li>
+<li>The oracle you used.</li>
+<li>One sentence about residual risk after that test passes.</li>
+</ol>
+<p>Good starting points are email/name/phone partitions, the 9.99/10.00/10.01 top-up boundary,
+the 5,000.00 single-top-up maximum, the 20,000.00 resulting-balance maximum, or the trust-tier
+limit/fee table.</p>
+<p>The next step is to learn test-design techniques that make selection disciplined rather than
+random: equivalence partitioning, boundary value analysis, decision tables, and later structural
+coverage, mutation testing, regression testing, and AI testing.</p>
+<h2 id="references-and-further-reading">References and Further Reading<a class="headerlink" href="#references-and-further-reading" title="Permanent link">&para;</a></h2>
+<p>[R1] Nancy G. Leveson and Clark S. Turner. "An Investigation of the Therac-25 Accidents."
+<em>Computer</em>, 26(7), 1993. https://doi.org/10.1109/MC.1993.274940</p>
+<p>[R2] U.S. House Committee on Transportation and Infrastructure. <em>Final Committee Report: The
+Design, Development &amp; Certification of the Boeing 737 MAX</em>. 2020.
+https://transportation.house.gov/committee-activity/issue/the-boeing-737-max-investigation</p>
+<p>[R3] U.S. Securities and Exchange Commission. <em>In the Matter of Knight Capital Americas LLC</em>,
+Release No. 70694. 2013. https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf</p>
+<p>[R4] Microsoft. "Helping our customers through the CrowdStrike outage." Official Microsoft Blog,
+2024-07-20. https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/</p>
+<p>[R5] CrowdStrike. "Remediation and Guidance Hub: Channel File 291 Incident." 2024.
+https://www.crowdstrike.com/falcon-content-update-remediation-and-guidance-hub/</p>
+<p>[R6] GitHub. "GitHub Copilot: Your AI pair programmer." https://github.com/features/copilot</p>
+<p>[R7] Hammond Pearce, Baleegh Ahmad, Benjamin Tan, Brendan Dolan-Gavitt, and Ramesh Karri.
+"Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions." 2022
+IEEE Symposium on Security and Privacy. https://doi.org/10.1109/SP46214.2022.9833571</p>
+<p>[R8] Burak Yetistiren, Isik Ozsoy, Miray Ayerdem, and Eray Tuzun. "Evaluating the Code Quality
+of AI-Assisted Code Generation Tools: An Empirical Study on GitHub Copilot, Amazon CodeWhisperer,
+and ChatGPT." 2023. https://arxiv.org/abs/2304.10778</p>
+<p>[R9] ISTQB. <em>Certified Tester Foundation Level Syllabus v4.0.1</em>.
+https://www.istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf</p>
+<p>[R10] Pierre Bourque and Richard E. Fairley, editors. <em>Guide to the Software Engineering Body of
+Knowledge (SWEBOK Guide), Version 4.0</em>. IEEE Computer Society, 2024. https://www.swebok.org</p>
+<p>[R11] Vahid Garousi, Austen Rainer, Per Lauvas Jr., and Andrea Arcuri. "Software-testing
+education: A systematic literature mapping." <em>Journal of Systems and Software</em>, 165, 2020.
+https://doi.org/10.1016/j.jss.2020.110570</p>
+<p>[R12] ISO/IEC 25010:2023. <em>Systems and software engineering: Systems and software Quality
+Requirements and Evaluation (SQuaRE): Product quality model</em>. https://www.iso.org/standard/78176.html</p>
+<p>[R13] Mauricio Aniche. <em>Effective Software Testing: A Developer's Guide</em>. Manning, 2022.
+https://www.manning.com/books/effective-software-testing</p>
+<p>[R14] Paul Ammann and Jeff Offutt. <em>Introduction to Software Testing</em>, 2nd edition. Cambridge
+University Press, 2016.</p>
+<p>[R15] Algirdas Avizienis, Jean-Claude Laprie, Brian Randell, and Carl Landwehr. “Basic Concepts
+and Taxonomy of Dependable and Secure Computing.” <em>IEEE Transactions on Dependable and Secure
+Computing</em>, 1(1), 2004. https://doi.org/10.1109/TDSC.2004.2</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "content.action.edit", "toc.integrate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

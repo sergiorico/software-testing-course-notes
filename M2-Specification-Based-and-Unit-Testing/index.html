@@ -1,0 +1,1569 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Narrative course notes supporting the Software Testing course (DV033G) at Mid Sweden University.">
+      
+      
+        <meta name="author" content="Sergio Rico">
+      
+      
+      
+        <link rel="prev" href="../M1-Quality-Assurance-Fundamentals/">
+      
+      
+        <link rel="next" href="../M3-Structural-Testing-and-Coverage/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>M2: Specification-Based and Unit Testing - Software Testing Course Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-2-specification-based-and-unit-testing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Software Testing Course Notes" class="md-header__button md-logo" aria-label="Software Testing Course Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Testing Course Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              M2: Specification-Based and Unit Testing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sergiorico/software-testing-course-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sergiorico/software-testing-course-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Software Testing Course Notes" class="md-nav__button md-logo" aria-label="Software Testing Course Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Testing Course Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sergiorico/software-testing-course-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sergiorico/software-testing-course-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M0-Introduction-and-Motivation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M0: Introduction and Motivation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M1-Quality-Assurance-Fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M1: Quality Assurance and Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M2: Specification-Based and Unit Testing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M2: Specification-Based and Unit Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-from-test-basis-to-test-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. From Test Basis to Test Design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-static-testing-defects-before-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Static Testing: Defects Before Execution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Static Testing: Defects Before Execution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-process-and-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review process and responsibilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-equivalence-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Equivalence Partitioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-boundary-value-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Boundary Value Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Boundary Value Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boundary-criteria-and-controlled-preconditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boundary criteria and controlled preconditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-decision-table-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Decision Table Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-state-transition-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. State Transition Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. State Transition Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-and-transition-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State and transition coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-use-case-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Use Case Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-from-designed-case-to-unit-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. From Designed Case to Unit Test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-fixtures-assertions-and-good-unit-test-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Fixtures, Assertions, and Good Unit-Test Style
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Fixtures, Assertions, and Good Unit-Test Style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assertion-choices-and-their-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assertion choices and their limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-evaluating-a-test-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Evaluating a Test Set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-summary-and-self-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Summary and Self-Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References and Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M3-Structural-Testing-and-Coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M3: Structural Testing and Coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M4-Test-Optimization-Mutation-Regression-CI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M4: Test Optimization, Mutation, Regression, CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M5-Research-Trends-and-Testing-AI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M5: Research Trends and Testing AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M6-Ethical-and-Societal-Aspects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M6: Ethical and Societal Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/sergiorico/software-testing-course-notes/edit/main/M2-Specification-Based-and-Unit-Testing.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="chapter-2-specification-based-and-unit-testing">Chapter 2: Specification-Based and Unit Testing<a class="headerlink" href="#chapter-2-specification-based-and-unit-testing" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Revised v0.3 (2026-09-11). Standalone conceptual reading with source-linked WalkMates examples.</p>
+<p>Examples use WalkMates commit <code>0a00e35b2b312a6765cced1602f5306a05ebbb0c</code> [R8].
+Requirements supply expected behaviour. Code supplies the public API, not an independent oracle.</p>
+</blockquote>
+<h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ol>
+<li>Explain the difference between static, dynamic, and specification-based testing.</li>
+<li>Use static review techniques to find defects before execution.</li>
+<li>Derive test cases using equivalence partitioning and boundary value analysis.</li>
+<li>Design decision-table, state-transition, and use-case tests for rule-heavy behavior.</li>
+<li>Translate a designed test case into a JUnit 5 unit test using Arrange-Act-Assert.</li>
+<li>Choose between single-case and parameterized tests.</li>
+<li>Evaluate the strength and limitations of an executable test's evidence.</li>
+</ol>
+<h2 id="1-from-test-basis-to-test-design">1. From Test Basis to Test Design<a class="headerlink" href="#1-from-test-basis-to-test-design" title="Permanent link">&para;</a></h2>
+<p>Specification-based testing begins with a simple discipline: before writing test code, identify
+what the test is based on. The test basis may be a requirement, user story, contract, regulation,
+design model, bug report, or stakeholder expectation. The tester studies that basis and turns it
+into test conditions, test data, expected outcomes, and eventually executable tests.</p>
+<p>📘 <strong>Concept: Specification-based testing.</strong> Specification-based testing designs tests from
+requirements and externally visible behavior rather than from the implementation. It asks what
+the system should do, what it should reject, and what outcomes stakeholders expect.</p>
+<p>Specification-based testing is often called black-box testing because it treats the internal code
+as hidden. That does not mean testers never look at code. It means the design logic of the test
+comes from the specification. Code can later be inspected, instrumented, or executed, but the
+oracle comes from the expected behavior.</p>
+<p>📘 <strong>Concept: Static, dynamic, and specification-based perspectives.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Perspective</th>
+<th>What is examined</th>
+<th>Program executed?</th>
+<th>Typical purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static testing</td>
+<td>Requirements, models, code, tests, manuals, pull requests</td>
+<td>No</td>
+<td>Find defects early and improve artifacts</td>
+</tr>
+<tr>
+<td>Dynamic testing</td>
+<td>Running software behavior</td>
+<td>Yes</td>
+<td>Observe actual behavior under selected conditions</td>
+</tr>
+<tr>
+<td>Specification-based testing</td>
+<td>Requirements and externally visible behavior</td>
+<td>Not necessarily; design can precede execution</td>
+<td>Derive cases from expected behavior rather than implementation</td>
+</tr>
+</tbody>
+</table>
+<p>Static and dynamic testing classify whether the software under test executes. Specification-based
+and structural techniques classify how cases are selected. These are different dimensions, not
+three competing categories. A requirement-derived JUnit test is both specification-based and
+dynamic when executed [R7, §§3.1, 4.1]. These perspectives complement each other.
+A requirement review may reveal that a booking rule is
+ambiguous. A specification-based test may show that an implementation violates the clarified
+rule. A structural coverage report may later show that some code branch was never exercised.</p>
+<p><strong>WalkMates example.</strong> A requirement such as "a booking duration must be between 30 and 1440
+minutes inclusive" is a test basis. The lower boundary, upper boundary, below-minimum case, and
+above-maximum case are test conditions. Concrete values such as <code>29</code>, <code>30</code>, <code>1440</code>, and <code>1441</code>
+become test data.</p>
+<blockquote>
+<p><strong>Common misconception.</strong> "Specification-based testing means guessing examples from the
+requirements."</p>
+<p><strong>Better.</strong> Specification-based testing is systematic. It uses techniques that explain why a
+selected set of examples provides particular evidence while leaving other behaviour unexamined.</p>
+</blockquote>
+<h2 id="2-static-testing-defects-before-execution">2. Static Testing: Defects Before Execution<a class="headerlink" href="#2-static-testing-defects-before-execution" title="Permanent link">&para;</a></h2>
+<p>Testing does not have to wait for runnable code. Static testing evaluates artifacts without
+executing the program. It can be applied to requirements, design sketches, database schemas,
+source code, test cases, manuals, and generated AI output. Static testing is valuable because it
+can find defects before they are embedded in code and before many downstream decisions depend on
+them.</p>
+<p>Static analysis uses tools to inspect properties of source code or other structured artifacts.
+The analysis tool executes, but the software under test does not execute as it would in a dynamic
+test. A finding can identify an issue such as a suspicious data flow or convention violation.
+It can also be a false alarm. A clean report leaves unexamined properties outside the tool's
+analysis. Human review contributes domain understanding, intent, and questions about omissions [R7, §3.1].</p>
+<p>🛠️ <strong>Technique: Review.</strong> A review is a human evaluation of an artifact. Reviews vary in
+formality:</p>
+<table>
+<thead>
+<tr>
+<th>Review type</th>
+<th>Typical form</th>
+<th>Strength</th>
+<th>Example artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Informal review</td>
+<td>Quick peer comments</td>
+<td>Cheap and fast</td>
+<td>A teammate skims a test class</td>
+</tr>
+<tr>
+<td>Walkthrough</td>
+<td>Author explains artifact and receives questions</td>
+<td>Shared understanding</td>
+<td>A developer walks through a booking rule</td>
+</tr>
+<tr>
+<td>Technical review</td>
+<td>Prepared expert review</td>
+<td>Technical accuracy and standards</td>
+<td>Review of API contracts or validation rules</td>
+</tr>
+<tr>
+<td>Inspection</td>
+<td>Formal roles, checklist, logging, metrics</td>
+<td>Rigorous defect detection</td>
+<td>Requirement or safety-critical design inspection</td>
+</tr>
+</tbody>
+</table>
+<p>Modern code review is often tool-supported and asynchronous. A pull request can expose code,
+tests, comments, discussions, CI results, and review decisions in one place. Modern code reviews
+can find defects, improve code quality, transfer knowledge, support onboarding, and make the
+team aware of changes [R3]. They can also become expensive when changes are too large, reviewers
+are overloaded, or the purpose of the review is unclear.</p>
+<p>A focused change, relevant reviewer expertise, and a clear requirement help make review useful.
+Mechanical checks can reduce style noise, while discussion addresses behaviour and trade-offs.
+These are practical responses to review challenges, not a guarantee of a fixed productivity gain.</p>
+<p>Heander and colleagues propose AI-supported review that retains human understanding and team
+benefits [R4]. Their paper is an ideas and vision contribution with a proposed architecture and
+research agenda. It does not establish that a particular AI review tool outperforms human review.
+Generated summaries and findings still need checks against the actual artifact and contract.</p>
+<h3 id="review-process-and-responsibilities">Review process and responsibilities<a class="headerlink" href="#review-process-and-responsibilities" title="Permanent link">&para;</a></h3>
+<p>A review begins with scope, artifact version, criteria, and participants. Initiation makes the
+context available. Reviewers then inspect individually and record anomalies. Communication and
+analysis distinguish confirmed defects, open questions, and other improvements. Correction and
+reporting close the loop by checking agreed actions and completion criteria [R7, §3.2].</p>
+<p>The author supplies the artifact and context. A review leader organises the review, a moderator
+facilitates discussion, reviewers examine the material, and a recorder captures findings.
+In the CTFL inspection model the author cannot also act as review leader or recorder [R7, §3.2.4].
+Less formal reviews may combine responsibilities. A review evaluates the work product, not the
+personal worth or performance of its author.</p>
+<p><strong>Worked review example.</strong> Consider the deliberately vague sentence “accept a booking when the
+user is below the limit and can afford it.” It leaves several questions unanswered. FR-1.2 and
+FR-4.2 define the tier maximum and which statuses count as active. FR-4.4 requires the active count
+to be strictly below its limit and permits price equality with the wallet balance. It also defines
+which rejection takes precedence. The vague sentence is a teaching paraphrase, not the current
+requirement wording [R8].</p>
+<p><strong>Worked code review example.</strong> The public <code>Seeker.addFunds</code> implementation rejects
+<code>amount &lt; MIN_TOP_UP</code>. FR-1.3 accepts the minimum itself. A hypothetical change to <code>&lt;=</code> would
+violate the rule. The 10.00 test detects that change dynamically, while review can identify the
+conflict without executing it. Review also needs the surrounding method: passing the minimum
+does not waive the maximum transaction or resulting-balance limits [R8].</p>
+<p><strong>Responsibility matters.</strong> FR-1.1 assigns email uniqueness to <code>SeekerService</code>, which can query
+stored accounts. The <code>Seeker</code> constructor checks field format and length. Terms acceptance is
+outside this teaching model. A constructor-only test cannot establish service-level uniqueness [R8].</p>
+<h2 id="3-equivalence-partitioning">3. Equivalence Partitioning<a class="headerlink" href="#3-equivalence-partitioning" title="Permanent link">&para;</a></h2>
+<p>Software often accepts large input spaces. Equivalence partitioning reduces that space by
+grouping inputs that should be treated similarly. Instead of testing every value, testers choose
+representatives from each partition.</p>
+<p>🛠️ <strong>Technique: Equivalence partitioning (EP).</strong> Divide the input domain into valid and invalid
+classes. Select representative values from each class because values inside the same class are
+expected to exercise similar behavior.</p>
+<p>For a simple duration rule, the partitions are clear:</p>
+<table>
+<thead>
+<tr>
+<th>Partition</th>
+<th>Meaning</th>
+<th>Representative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invalid low</td>
+<td>Duration below the minimum</td>
+<td><code>29</code></td>
+</tr>
+<tr>
+<td>Valid</td>
+<td>Duration between 30 and 1440 inclusive</td>
+<td><code>60</code></td>
+</tr>
+<tr>
+<td>Invalid high</td>
+<td>Duration above the maximum</td>
+<td><code>1441</code></td>
+</tr>
+</tbody>
+</table>
+<p>Missing, non-numeric, or malformed duration values form additional partitions at an API or user-
+interface parsing boundary. They are not values in the integer domain accepted by the
+<code>Booking</code> constructor.</p>
+<p>The power of EP is not that one representative proves the entire partition correct. It is that
+the partition makes the tester's assumption visible: "I believe these values are handled by the
+same logic." If the assumption is weak, the partition should be split.</p>
+<p><strong>WalkMates example.</strong> Trust tiers, listing statuses, wallet states, and booking durations all
+have natural partitions. For example, wallet balance can be partitioned into less than total
+price, exactly total price, and greater than total price.</p>
+<p>Partitions should cover the selected domain without overlap. They may describe outputs or states
+as well as inputs. Their adequacy depends on whether the hypothesised similarity in behaviour is
+justified [R1, R7]. Testing one representative of each duration class covers three selected
+partitions. It does not establish all boundary values or combinations with other fields.</p>
+<h2 id="4-boundary-value-analysis">4. Boundary Value Analysis<a class="headerlink" href="#4-boundary-value-analysis" title="Permanent link">&para;</a></h2>
+<p>Many defects occur at the edges of ranges: one less than the minimum, exactly the minimum, one
+above the minimum, one below the maximum, exactly the maximum, and one above the maximum. This is
+why boundary value analysis is often paired with equivalence partitioning.</p>
+<p>🛠️ <strong>Technique: Boundary value analysis (BVA).</strong> Identify edges in ordered domains and test
+values on and around those edges.</p>
+<p>For <code>FR-4.1</code>, the useful boundary set is:</p>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th style="text-align: right;">Value</th>
+<th>Expected result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Just below lower boundary</td>
+<td style="text-align: right;"><code>29</code></td>
+<td>Reject</td>
+</tr>
+<tr>
+<td>Lower boundary</td>
+<td style="text-align: right;"><code>30</code></td>
+<td>Accept</td>
+</tr>
+<tr>
+<td>Just above lower boundary</td>
+<td style="text-align: right;"><code>31</code></td>
+<td>Accept</td>
+</tr>
+<tr>
+<td>Just below upper boundary</td>
+<td style="text-align: right;"><code>1439</code></td>
+<td>Accept</td>
+</tr>
+<tr>
+<td>Upper boundary</td>
+<td style="text-align: right;"><code>1440</code></td>
+<td>Accept</td>
+</tr>
+<tr>
+<td>Just above upper boundary</td>
+<td style="text-align: right;"><code>1441</code></td>
+<td>Reject</td>
+</tr>
+</tbody>
+</table>
+<p>The values <code>30</code> and <code>1440</code> matter because the requirement is inclusive. A test suite that checks
+only <code>60</code> minutes and <code>2000</code> minutes may look reasonable but can miss an off-by-one defect.</p>
+<blockquote>
+<p><strong>Common misconception.</strong> "I tested a value inside the valid range, so I tested the range."</p>
+<p><strong>Better.</strong> A normal valid value tests one representative. Boundaries test where programmers
+commonly make comparison mistakes.</p>
+</blockquote>
+<h3 id="boundary-criteria-and-controlled-preconditions">Boundary criteria and controlled preconditions<a class="headerlink" href="#boundary-criteria-and-controlled-preconditions" title="Permanent link">&para;</a></h3>
+<p>For the two specified limits, two-value BVA selects <code>29, 30, 1440, 1441</code>. Three-value analysis
+around those limits adds the inside neighbours <code>31</code> and <code>1439</code>. State which boundaries and
+neighbours form the coverage model before reporting a percentage. Additional partitions can
+introduce additional boundaries [R7, §4.2.2].</p>
+<p>Wallet tests require state as well as an amount. The following examples use cent-valued amounts:</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th style="text-align: right;">Starting balance</th>
+<th>Amounts</th>
+<th>Expected outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum single top-up</td>
+<td style="text-align: right;">0.00</td>
+<td>9.99, 10.00, 10.01</td>
+<td>Reject, accept, accept</td>
+</tr>
+<tr>
+<td>Maximum single top-up</td>
+<td style="text-align: right;">0.00</td>
+<td>4999.99, 5000.00, 5000.01</td>
+<td>Accept, accept, reject</td>
+</tr>
+<tr>
+<td>Maximum resulting balance</td>
+<td style="text-align: right;">15010.00</td>
+<td>4989.99, 4990.00, 4990.01</td>
+<td>Accept, accept, reject</td>
+</tr>
+</tbody>
+</table>
+<p>The last row holds the single-top-up constraint valid while moving the resulting balance across
+20,000.00. The rejected case must leave the original 15,010.00 unchanged. Public top-ups of
+5,000.00 three times followed by 10.00 establish that starting state [R8].</p>
+<p>Amounts with more precision introduce rounding questions. For example, 10.005 rounds to 10.01
+under the half-up rule, with no transaction-boundary conflict. At a transaction limit, however,
+the contract should clarify whether validation applies before or after rounding. The current
+<code>addFunds</code> implementation checks the raw amount before rounding the resulting balance. That is
+an observed implementation order, not a substitute for clarifying an ambiguous requirement [R8].</p>
+<h2 id="5-decision-table-testing">5. Decision Table Testing<a class="headerlink" href="#5-decision-table-testing" title="Permanent link">&para;</a></h2>
+<p>Some behavior depends on several conditions at once. In that situation, individual boundary
+tests are not enough because the risk lives in combinations. Decision table testing makes those
+combinations explicit.</p>
+<p>🛠️ <strong>Technique: Decision table testing.</strong> List conditions, list actions, and create rules that
+map condition combinations to expected outcomes.</p>
+<p>A simplified FR-4.4 booking decision, preserving first-failing-reason order, is:</p>
+<table>
+<thead>
+<tr>
+<th>Condition / action</th>
+<th style="text-align: right;">Accept</th>
+<th style="text-align: right;">Listing</th>
+<th style="text-align: right;">Seeker</th>
+<th style="text-align: right;">Provider</th>
+<th style="text-align: right;">Duration</th>
+<th style="text-align: right;">Balance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listing is available</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">N</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Y</td>
+</tr>
+<tr>
+<td>Seeker is below active-booking limit</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">N</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Y</td>
+</tr>
+<tr>
+<td>Provider is below capacity</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">N</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Y</td>
+</tr>
+<tr>
+<td>Duration is within 30..1440</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">N</td>
+<td style="text-align: right;">Y</td>
+</tr>
+<tr>
+<td>Total price is within wallet balance</td>
+<td style="text-align: right;">Y</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">Any</td>
+<td style="text-align: right;">N</td>
+</tr>
+<tr>
+<td><strong>Expected action</strong></td>
+<td style="text-align: right;">accept</td>
+<td style="text-align: right;">reject listing</td>
+<td style="text-align: right;">reject seeker</td>
+<td style="text-align: right;">reject provider</td>
+<td style="text-align: right;">reject duration</td>
+<td style="text-align: right;">reject balance</td>
+</tr>
+</tbody>
+</table>
+<p>“Any” means “does not matter for this rule” because an earlier condition already determines
+the outcome. This kind of table helps find missing rules, duplicated rules, contradictory rules,
+and unclear rejection precedence.</p>
+<p>A table should distinguish irrelevant conditions from infeasible combinations. Five Boolean
+conditions yield 32 abstract combinations, but concrete domain constraints may rule some out.
+The compressed FR-4.4 table groups combinations with the same first failing condition. One
+feasible test per rule covers that rule model. Additional cases with competing failures test
+whether rejection precedence is implemented correctly [R7, §4.2.3; R8].</p>
+<p>For example, a provider-rejection case needs an available Listing, a Seeker below the tier limit,
+a Provider already at capacity, a valid duration, and sufficient funds. A second case with both
+an unavailable Listing and a full Provider should report the Listing failure first. These are
+expected results from the specification, not a claim that a service run has been observed.</p>
+<p>A smaller decision table maps one mutually exclusive input to two outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Trust tier</th>
+<th style="text-align: right;">Maximum concurrent active bookings</th>
+<th style="text-align: right;">Platform fee</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NEW</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">15%</td>
+</tr>
+<tr>
+<td>VERIFIED</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">12%</td>
+</tr>
+<tr>
+<td>TRUSTED</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8%</td>
+</tr>
+<tr>
+<td>PRO_SITTER</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">5%</td>
+</tr>
+</tbody>
+</table>
+<p>Each row is one FR-1.2 rule. The test should check both outputs against literal requirement data.
+Deriving expected values by calling the production getter would fail to check the mapping [R8].</p>
+<h2 id="6-state-transition-testing">6. State Transition Testing<a class="headerlink" href="#6-state-transition-testing" title="Permanent link">&para;</a></h2>
+<p>Many systems are not defined only by one input. They are defined by state and allowed movement
+between states. A state-transition defect occurs when the system allows an invalid transition or
+blocks a valid one.</p>
+<p>🛠️ <strong>Technique: State transition testing.</strong> Model behavior as states and transitions. Test
+valid transitions, invalid transitions, and important sequences.</p>
+<p>For WalkMates, the <strong>Booking</strong> lifecycle in FR-4.2 is:</p>
+<pre><code class="language-text">REQUESTED -&gt; CONFIRMED -&gt; IN_PROGRESS -&gt; COMPLETED
+REQUESTED -&gt; CANCELLED
+CONFIRMED -&gt; CANCELLED
+</code></pre>
+<p>Invalid transitions are just as important:</p>
+<table>
+<thead>
+<tr>
+<th>Current state</th>
+<th>Attempted transition</th>
+<th>Expected result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COMPLETED</code></td>
+<td><code>CONFIRMED</code></td>
+<td>Reject; completed booking is closed</td>
+</tr>
+<tr>
+<td><code>CANCELLED</code></td>
+<td><code>IN_PROGRESS</code></td>
+<td>Reject; cancelled booking cannot start</td>
+</tr>
+<tr>
+<td><code>IN_PROGRESS</code></td>
+<td><code>REQUESTED</code></td>
+<td>Reject; cannot move backward</td>
+</tr>
+<tr>
+<td><code>REQUESTED</code></td>
+<td><code>COMPLETED</code></td>
+<td>Reject; booking must be confirmed and started first</td>
+</tr>
+</tbody>
+</table>
+<p>Do not confuse this with the separate <strong>Listing</strong> state machine in FR-3.2, whose states include
+<code>AVAILABLE</code> and <code>BOOKED</code>.</p>
+<p>State-transition testing is especially useful for workflows, lifecycles, approval processes,
+and resource management.</p>
+<h3 id="state-and-transition-coverage">State and transition coverage<a class="headerlink" href="#state-and-transition-coverage" title="Permanent link">&para;</a></h3>
+<p>Visiting every state does not necessarily exercise every valid transition. A sequence that
+cancels a REQUESTED Booking visits CANCELLED but does not exercise cancellation from CONFIRMED.
+All-valid-transition coverage requires each allowed edge. All-transition coverage also exercises
+attempted invalid transitions in the selected state model [R7, §4.2.4].</p>
+<p>An invalid case should establish its source state through legal operations, attempt one forbidden
+transition, and check both rejection and unchanged state. For example, construct a Booking,
+confirm it, start it, complete it, and then attempt confirmation again. The contract requires an
+<code>IllegalStateException</code>, a remaining COMPLETED status, and inactive classification [R8].
+Null is an additional API input rather than a state in this five-state model.</p>
+<h2 id="7-use-case-testing">7. Use Case Testing<a class="headerlink" href="#7-use-case-testing" title="Permanent link">&para;</a></h2>
+<p>Use case testing starts from realistic user goals. Instead of asking only whether a single input
+is accepted, it asks whether a user can complete a meaningful workflow and whether alternative
+or exceptional paths are handled.</p>
+<p>🛠️ <strong>Technique: Use case testing.</strong> Derive tests from user scenarios: main success path,
+alternative paths, error paths, and recovery paths.</p>
+<p>Example use case: a verified seeker books an available dog walk.</p>
+<table>
+<thead>
+<tr>
+<th>Path type</th>
+<th>Scenario</th>
+<th>Expected result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main success</td>
+<td>Listing available, duration valid, capacity available, wallet sufficient</td>
+<td>Service returns a confirmed Booking; UI confirmation requires separate interface evidence</td>
+</tr>
+<tr>
+<td>Alternative</td>
+<td>Wallet balance exactly equals total price</td>
+<td>Booking is created and balance becomes zero</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>Duration is <code>29</code> minutes</td>
+<td>Booking is rejected with duration message</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>Provider capacity is full</td>
+<td>Booking is rejected with capacity message</td>
+</tr>
+<tr>
+<td>Recovery at service level</td>
+<td>Wallet insufficient; <code>SeekerService.topUp</code> succeeds; booking is retried</td>
+<td>Second attempt can succeed</td>
+</tr>
+</tbody>
+</table>
+<p>Use case tests are often broader than unit tests. They can become system or acceptance tests if
+they cross user interface, API, service, database, and notification layers.</p>
+<p>Use-case tests need explicit preconditions, actor actions, and observable postconditions.
+A service test can check returned state, wallet effects, and repository state. It cannot establish
+that a UI message appeared. A broader test must cross the interface whose behaviour it claims
+to evaluate. Distinguish desired behaviour from observed implementation results [R1, R8].</p>
+<h2 id="8-from-designed-case-to-unit-test">8. From Designed Case to Unit Test<a class="headerlink" href="#8-from-designed-case-to-unit-test" title="Permanent link">&para;</a></h2>
+<p>Unit testing turns small behavioral expectations into executable evidence. A unit test focuses
+on a small part of the system, such as a method, class, or small module. It should be automated,
+fast, repeatable, and isolated enough that failures are easy to diagnose.</p>
+<p>📘 <strong>Concept: Unit test.</strong> A unit test checks a small unit of behavior in isolation. It is most
+valuable when the expected behavior is precise and the test can run quickly without external
+systems.</p>
+<p>A unit is selected around coherent behaviour; it is not forced to be exactly one method or one
+class. The useful boundary is the smallest one that keeps the behaviour observable and the
+failure diagnostic.</p>
+<p>🧭 <strong>Principle: Test the contract, not the implementation.</strong> Two implementations can satisfy
+the same behavior. A good unit test should usually verify the externally expected result, not
+the exact internal algorithm.</p>
+<p>The examples use JUnit Jupiter and AssertJ supplied by the WalkMates Maven configuration [R8].
+Maven must run with Java 21. From the repository root, <code>mvn -v</code> checks the runtime, and
+<code>mvn -Dtest=SeekerSpecBasedTest test</code> runs the existing focused test class.</p>
+<p>JUnit 5 tests commonly follow the Arrange-Act-Assert pattern:</p>
+<pre><code class="language-java">@Test
+void minimumTopUpIsAccepted() {
+    // Arrange
+    Seeker seeker = new Seeker(&quot;ada@example.se&quot;, &quot;Ada&quot;, &quot;0701234567&quot;);
+
+    // Act
+    seeker.addFunds(10.00);
+
+    // Assert
+    assertThat(seeker.getBalance()).isEqualTo(10.00);
+}
+</code></pre>
+<p>The pattern keeps the test readable:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Question</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arrange</td>
+<td>What objects, data, and preconditions are needed?</td>
+<td>Create a valid <code>Seeker</code></td>
+</tr>
+<tr>
+<td>Act</td>
+<td>What behavior is executed?</td>
+<td>Call <code>addFunds(10.00)</code></td>
+</tr>
+<tr>
+<td>Assert</td>
+<td>What should be true afterward?</td>
+<td>Assert the wallet contains 10.00 SEK</td>
+</tr>
+</tbody>
+</table>
+<p>Parameterized tests are useful when several inputs follow the same structure:</p>
+<pre><code class="language-java">@ParameterizedTest
+@ValueSource(doubles = {10.00, 100.00, 5_000.00})
+void acceptedTopUpsCreditTheWallet(double amount) {
+    Seeker seeker = new Seeker(&quot;ada@example.se&quot;, &quot;Ada&quot;, &quot;0701234567&quot;);
+    seeker.addFunds(amount);
+    assertThat(seeker.getBalance()).isEqualTo(amount);
+}
+</code></pre>
+<p>Single-case tests are easier to diagnose when one edge case fails. Parameterized tests are more
+compact when the same rule applies to many values. A useful test suite often uses both.</p>
+<p>Compare two oracles for a created booking:</p>
+<pre><code class="language-java">// Weak: almost any returned object satisfies this.
+assertThat(booking).isNotNull();
+
+// Stronger: checks behaviour promised by the booking contract.
+assertThat(booking.getStatus()).isEqualTo(BookingStatus.CONFIRMED);
+assertThat(booking.getPrice()).isCloseTo(expectedPrice, within(0.005));
+</code></pre>
+<p>The stronger version is still incomplete if wallet, Listing state, persistence, or notification
+effects are part of the test's stated objective. The tolerance reflects the current <code>double</code> API;
+a decimal money type with an explicit rounding contract would support stronger exact assertions.
+The snippet assumes AssertJ's static <code>within</code> import.</p>
+<p>A second-top-up test illustrates fault sensitivity. Arrange a wallet with 100.00, add 25.00,
+and expect 125.00. A test that starts from zero might not distinguish addition from replacement.
+The non-zero setup makes that difference observable without checking private fields [R8].</p>
+<p>For a state sequence, <code>new Booking("s-1", "l-1", 60)</code> begins in REQUESTED. Calls to
+<code>transitionTo(CONFIRMED)</code>, <code>transitionTo(IN_PROGRESS)</code>, and <code>transitionTo(COMPLETED)</code>
+establish a completed Booking. Another confirmation must fail and leave state unchanged [R8].</p>
+<h2 id="9-fixtures-assertions-and-good-unit-test-style">9. Fixtures, Assertions, and Good Unit-Test Style<a class="headerlink" href="#9-fixtures-assertions-and-good-unit-test-style" title="Permanent link">&para;</a></h2>
+<p>🧱 <strong>Artifact: Test fixture.</strong> A fixture is the setup needed to execute tests: objects, test
+data, fake collaborators, database state, files, or configuration. In JUnit 5, <code>@BeforeEach</code>
+can create fresh setup before every test, while <code>@BeforeAll</code> is used for class-level setup.</p>
+<p>JUnit Jupiter's default lifecycle creates a new test-class instance per test. <code>@BeforeEach</code>
+and <code>@AfterEach</code> surround each test or parameterised invocation. <code>@BeforeAll</code> and <code>@AfterAll</code>
+run once per class and are normally static. With the explicitly selected PER_CLASS lifecycle,
+they can be instance methods. Fresh instances do not isolate static fields or external state [R5].</p>
+<p>A small factory returning a new valid Seeker removes repetitive registration data while leaving
+the important top-up or starting balance visible. A shared mutable wallet can introduce
+order dependence. Setup should be local, predictable, and no broader than the behaviour requires.</p>
+<p>Assertions are the oracle in executable form. Common JUnit assertions include equality
+assertions, truth assertions, null assertions, exception assertions, grouped assertions, and
+timeouts.</p>
+<p>Good unit tests tend to share several properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Independent</td>
+<td>Tests should not depend on execution order</td>
+</tr>
+<tr>
+<td>Descriptive</td>
+<td>Names should explain behavior and condition</td>
+</tr>
+<tr>
+<td>Focused</td>
+<td>One failing test should point to a small behavior</td>
+</tr>
+<tr>
+<td>Fast</td>
+<td>Unit tests should support frequent local and CI execution</td>
+</tr>
+<tr>
+<td>Deterministic</td>
+<td>Same code and same setup should produce same result</td>
+</tr>
+<tr>
+<td>Meaningful assertions</td>
+<td>Executing code without checking behavior gives weak evidence</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Common misconception.</strong> "A long test is a strong test."</p>
+<p><strong>Better.</strong> A strong unit test is focused, readable, and has a clear oracle. Long setup can
+hide the behavior being tested.</p>
+</blockquote>
+<h3 id="assertion-choices-and-their-limits">Assertion choices and their limits<a class="headerlink" href="#assertion-choices-and-their-limits" title="Permanent link">&para;</a></h3>
+<p><code>assertEquals(expected, actual)</code> compares values, whereas <code>assertSame</code> checks reference
+identity. <code>assertAll</code> reports related assertion failures together. <code>assertThrows</code> checks
+the specified exception type or a subtype. It should enclose the intended action, not a broad
+block whose setup might throw first. After a rejected top-up, also check that the balance is
+unchanged. This checks a meaningful postcondition [R5, R8].</p>
+<p>The expected number should come from the specification. A 10.005 top-up rounds to 10.01 under
+FR-1.3. With the current double API, a very small tolerance such as 0.000001 accommodates
+representation differences without allowing a one-cent error. Exact checks are suitable for
+the simple exactly representable amounts used in other examples. AssertJ offers fluent
+equivalents such as <code>assertThat(balance).isEqualTo(100.00)</code> and exception assertions [R6, R8].</p>
+<p>A timeout assertion is a limited check, not a performance study. JUnit's <code>assertTimeout</code>
+evaluates elapsed time after the operation completes and does not stop an endless operation.
+Preemptive timeout assertions execute differently and can interact with thread-local state.
+Tight timing bounds make tests sensitive to machine load [R5].</p>
+<p>Parameterised tests should preserve one story. <code>@ValueSource</code> supplies individual values,
+while <code>@CsvSource</code> can pair inputs with expected results such as the trust-tier table.
+<code>@ParameterizedTest(name = "...{0}...")</code> creates input-aware invocation names. Putting
+placeholders in <code>@DisplayName</code> does not provide that parameter substitution [R5].</p>
+<h2 id="10-evaluating-a-test-set">10. Evaluating a Test Set<a class="headerlink" href="#10-evaluating-a-test-set" title="Permanent link">&para;</a></h2>
+<p>A test's value depends on the claim its assertions support. A call to <code>addFunds(10.00)</code>
+followed only by <code>assertNotNull(seeker)</code> would pass even if the wallet never changed. Checking
+the expected balance makes that missing update observable. A rejected-input test also needs
+the relevant unchanged-state assertion.</p>
+<p>For any test set, trace expected outcomes to the basis, inspect its partitions and boundaries,
+check combinations and history, and identify plausible faults that would still escape.
+Requirements and code generated from the same mistaken assumption can share a blind spot.
+Independent oracle reasoning matters regardless of who or what proposed the tests.</p>
+<p>Specification-based coverage describes the chosen model. Visiting every selected partition
+does not establish every program path. Executing every line does not establish a correct oracle.
+These measurements answer different questions and should be reported with their scope.</p>
+<h2 id="11-summary-and-self-check">11. Summary and Self-Check<a class="headerlink" href="#11-summary-and-self-check" title="Permanent link">&para;</a></h2>
+<p>This chapter moves from test ideas to test design. Static testing finds defects before
+execution. Specification-based techniques explain how to choose test cases from expected
+behavior. Unit testing turns selected cases into fast, repeatable evidence.</p>
+<p>Before continuing, check whether you can answer these questions:</p>
+<ol>
+<li>What is the difference between static and dynamic testing?</li>
+<li>What makes a review more formal than an informal peer check?</li>
+<li>Why does equivalence partitioning reduce effort?</li>
+<li>Which values would you choose for a 30-1440 inclusive boundary?</li>
+<li>When is a decision table more useful than a list of separate test cases?</li>
+<li>What is the difference between a state-transition test and a use-case test?</li>
+<li>What do Arrange, Act, and Assert mean?</li>
+<li>When would a parameterized test be clearer than many separate tests?</li>
+</ol>
+<h2 id="references-and-further-reading">References and Further Reading<a class="headerlink" href="#references-and-further-reading" title="Permanent link">&para;</a></h2>
+<p>[R1] Mauricio Aniche. <em>Effective Software Testing: A Developer's Guide</em>. Manning, 2022.
+https://www.manning.com/books/effective-software-testing</p>
+<p>[R2] Kshirasagar Naik and Priyadarshi Tripathy. <em>Software Testing and Quality Assurance: Theory
+and Practice</em>. Wiley, 2008 (original publication, also available as a 2011 electronic edition).
+https://doi.org/10.1002/9780470382844</p>
+<p>[R3] D. Badampudi, M. Unterkalmsteiner, and R. Britto. "Modern code reviews: survey of
+literature and practice." <em>ACM Transactions on Software Engineering and Methodology</em>, 32(4),
+2023. https://doi.org/10.1145/3585004</p>
+<p>[R4] Lo Gullstrand Heander, Emma Söderberg, and Christofer Rydénfält. "Support, Not
+Automation: Towards AI-Supported Code Review for Code Quality and Beyond." <em>Proceedings of the
+33rd ACM International Conference on the Foundations of Software Engineering Companion
+(FSE Companion '25)</em>, 2025. Ideas and vision paper.
+https://doi.org/10.1145/3696630.3728505</p>
+<p>[R5] JUnit Team. <em>JUnit 5 User Guide</em>, version 5.12.2. Sections on assertions,
+parameterised tests, lifecycle, and test-instance lifecycle.
+https://docs.junit.org/5.12.2/user-guide/</p>
+<p>[R6] AssertJ. <em>AssertJ Core documentation</em>. https://assertj.github.io/doc/</p>
+<p>[R7] ISTQB. <em>Certified Tester Foundation Level Syllabus</em>, v4.0.1 (2024),
+§3 Static Testing and §4.2 Black-Box Test Techniques. Section 4.2 covers EP, BVA,
+decision tables, and state transitions. This chapter also retains use-case testing as broader
+scenario design, not as a fifth technique listed in that section.
+https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf</p>
+<p>[R8] Sergio Rico. <em>WalkMates</em>, source snapshot verified 2026-09-11, commit
+<code>0a00e35b2b312a6765cced1602f5306a05ebbb0c</code>.
+<a href="https://github.com/sergiorico/walkmates-test/blob/0a00e35b2b312a6765cced1602f5306a05ebbb0c/docs/REQUIREMENTS.md">Requirements</a>,
+<a href="https://github.com/sergiorico/walkmates-test/blob/0a00e35b2b312a6765cced1602f5306a05ebbb0c/src/main/java/com/walkmates/model/Seeker.java">Seeker</a>,
+<a href="https://github.com/sergiorico/walkmates-test/blob/0a00e35b2b312a6765cced1602f5306a05ebbb0c/src/main/java/com/walkmates/model/Booking.java">Booking</a>,
+<a href="https://github.com/sergiorico/walkmates-test/blob/0a00e35b2b312a6765cced1602f5306a05ebbb0c/src/main/java/com/walkmates/model/TrustTier.java">TrustTier</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "content.action.edit", "toc.integrate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
