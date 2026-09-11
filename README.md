@@ -15,9 +15,9 @@ by [Sergio Rico](https://www.miun.se) at Mid Sweden University. The current edit
   chapters outside this course. Cited third-party material (papers, standards, books) is not
   relicensed by inclusion here; follow the citation to the original source.
 
-The notes are not slide transcripts. Each module note connects lecture content, activities, and
-lab/project work into one readable study document, and each chapter records its own draft
-version and date in its opening line.
+The notes develop testing concepts through explanations, worked examples, and references.
+Chapter 2 is independent reading without course activity instructions. Some earlier chapters
+still retain activity material. Each chapter records its own version and date in its opening line.
 
 ## Building the website
 
@@ -46,7 +46,7 @@ status table below, for the current state of each module.
 |---|---|---|---|
 | M0 | Introduction and Motivation: Software Engineering in the AI Era | L0 and four core readings | Draft v0.4: focused conceptual chapter with testing capabilities; review due |
 | M1 | Quality Assurance & Fundamentals of Testing | L1, L2 | Draft v0.5: aligned, final copyedit due |
-| M2 | Specification-based & Unit Testing | L3, L4 | Draft v0.2: aligned, final copyedit due |
+| M2 | Specification-based & Unit Testing | L3, L4 | Revised v0.3: standalone reading, expanded reviews and unit testing, pinned WalkMates sources |
 | M3 | Structural Testing & Coverage | L5 | Draft v0.2: aligned, final copyedit due |
 | M4 | Test Optimization | L6, L7 | Draft v0.2: aligned, final copyedit due |
 | M5 | Research Trends & Testing AI | L9 | Draft v0.2: aligned, time-sensitive sources to recheck |
